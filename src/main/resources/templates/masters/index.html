@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Кращі тату майстри України</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Список мастеров</h1>
+<ul>
+
+    <li th:each="master : ${masters}">
+        <a th:href="@{/tattoo-masters/{id}(id=${master.id})}" th:text="${master.socialMedia}"></a>
+    </li>
+</ul>
+</body>
+</html>

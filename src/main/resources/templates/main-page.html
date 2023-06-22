@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SkinDreamsTatooCo</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="sidebar">
+    <nav>
+        <ul>
+            <li><a href="/">Головна</a></li>
+            <li><a href="#">Послуги</a></li>
+            <li><a href="/tattoo-masters">Майстри</a></li>
+            <li><a href="#">Стилі Тату</a></li>
+            <li><a href="#">Блог</a></li>
+            <li><a href="#">Відгуки</a></li>
+            <li><a href="#">Контакти</a></li>
+            <li><a href="#">TravelMaster</a></li>
+        </ul>
+    </nav>
+</div>
+
+<section class="testimonial-section">
+    <h2>Отзывы</h2>
+    <ul>
+        <!-- Используем Thymeleaf для итерации по списку мастеров -->
+        <th:block th:each="review : ${reviews}">
+            <li th:text="${review.authorName}"></li>
+            <br>
+            <li th:text="${review.text}"></li>
+            <br>
+            <li th:text="${review.rating}"></li>
+            <br>
+            <li th:text="${review.master.name}"></li>
+            <br><br>
+        </th:block>
+    </ul>
+
+    <!-- Место для отзывов -->
+</section>
+
+<section class="photo-section">
+    <h2>Фотографии</h2>
+    <!-- Место для фотографий -->
+</section>
+
+<section class="text-section">
+    <h2>Текст</h2>
+    <img th:src="@{/images/photo.jpg}" alt="Фото мастера">
+    <!-- Место для текста -->
+</section>
+</body>
+</html>
