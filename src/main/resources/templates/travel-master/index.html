@@ -1,46 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Гостьові Майстри</title>
+  <meta charset="UTF-8">
+  <title>Гостьові Майстри</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <nav>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="/">Головна</a></li>
+            <li class="nav-item"><a class="nav-link" href="/uslugi">Послуги</a></li>
+            <li class="nav-item"><a class="nav-link" href="/tattoo-masters">Майстри</a></li>
+            <li class="nav-item"><a class="nav-link" href="/stili-tattoo">Стилі Тату</a></li>
+            <li class="nav-item"><a class="nav-link" href="/nash-blog">Блог</a></li>
+            <li class="nav-item"><a class="nav-link" href="/otzyvy">Відгуки</a></li>
+            <li class="nav-item"><a class="nav-link" href="/kontakty">Контакти</a></li>
+            <li class="nav-item"><a class="nav-link" href="/guest-master">TravelMaster</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/skindreams.tattoo/?hl=ru">Inst</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Face</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Disc</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <form method="post" action="/guest-master/new-guest-master">
+        <div class="form-group">
+          <label for="name">Имя:</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="socialMedia">Соц мережі:</label>
+          <input type="text" class="form-control" id="socialMedia" name="socialMedia" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="text" class="form-control" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" class="form-control" id="description" name="description">
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
 
-  <form method="post" action="/guest-master/new-guest-master">
-    <label for="name">Имя:</label>
-    <input type="text" id="name" name="name" required><br><br>
+      <section>
+        <h2>Гостьові Майстри</h2>
+        <ul>
+          <!-- Используем Thymeleaf для итерации по списку отзывов -->
+          <th:block th:each="master : ${guestMasters}">
+            <li th:text="${master.name}"></li>
+            <br>
+            <li th:text="${master.socialMedia}"></li>
+            <br>
+          </th:block>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
 
-    <label for="socialMedia">Соц мережі:</label>
-    <input type="text" id="socialMedia" name="socialMedia" required><br><br>
-
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone" ><br><br>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" ><br><br>
-
-
-    <label for="description">Description:</label>
-    <input type="text" id="description" name="description" ><br><br>
-
-    <button type="submit">Отправить</button>
-  </form>
-
-
-<section>
-  <h2>Гостьові Майстри</h2>
-  <ul>
-    <!-- Используем Thymeleaf для итерации по списку отзывов -->
-    <th:block th:each="master : ${guestMasters}">
-      <li th:text="${master.name}"></li>
-      <br>
-      <li th:text="${master.socialMedia}"></li>
-      <br>
-    </th:block>
-  </ul>
-</section>
-
-
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
