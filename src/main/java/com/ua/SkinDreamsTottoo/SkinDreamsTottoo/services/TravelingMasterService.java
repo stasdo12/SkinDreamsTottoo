@@ -39,9 +39,9 @@ public class TravelingMasterService {
     }
 
     @Transactional
-    public TravelingMaster saveTravelingMaster(TravelingMaster travelingMaster){
+    public void saveTravelingMaster(TravelingMaster travelingMaster){
         log.info("Save TravelingMaster");
-        return travelingMasterRepository.save(travelingMaster);
+        travelingMasterRepository.save(travelingMaster);
     }
 
 

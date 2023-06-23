@@ -19,15 +19,13 @@ public class ClientDTO {
     @NotEmpty
     private String name;
 
-    @NotEmpty
-    private String lastName;
 
     @NotEmpty
     @Pattern(regexp="[0-9]{10}")
     private String phone;
 
 
-    @NotEmpty
+
     @Email
     private String email;
 

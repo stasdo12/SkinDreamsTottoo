@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review</title>
+</head>
+<body>
+
+
+<section class="testimonial-section">
+  <h2>Отзывы</h2>
+  <ul>
+    <!-- Используем Thymeleaf для итерации по списку отзывов -->
+    <th:block th:each="review : ${reviews}">
+      <li th:text="${review.authorName}"></li>
+      <br>
+      <li th:text="${review.text}"></li>
+      <br>
+      <li th:text="${review.rating}"></li>
+      <br>
+      <li th:text="${review.master.name}"></li>
+      <br><br>
+    </th:block>
+  </ul>
+</section>
+
+
+</body>
+</html>

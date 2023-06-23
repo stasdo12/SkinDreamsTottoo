@@ -40,9 +40,9 @@ public class ClientService {
 
 
     @Transactional
-    public Client saveClient(Client client){
+    public void saveClient(Client client){
         log.info("Save Client");
-        return clientRepository.save(client);
+        clientRepository.save(client);
     }
 
     @Transactional

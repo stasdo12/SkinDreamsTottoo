@@ -1,29 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>SkinDreamsTatooCo</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <style>
+
+        .footer {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            transition: bottom 0.3s ease-in-out;
+        }
+
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-column ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 <div class="sidebar">
     <nav>
         <ul>
             <li><a href="/">Головна</a></li>
-            <li><a href="#">Послуги</a></li>
+            <li><a href="/uslugi">Послуги</a></li>
             <li><a href="/tattoo-masters">Майстри</a></li>
-            <li><a href="#">Стилі Тату</a></li>
-            <li><a href="#">Блог</a></li>
-            <li><a href="#">Відгуки</a></li>
-            <li><a href="#">Контакти</a></li>
-            <li><a href="#">TravelMaster</a></li>
+            <li><a href="/stili-tattoo">Стилі Тату</a></li>
+            <li><a href="/nash-blog">Блог</a></li>
+            <li><a href="/otzyvy">Відгуки</a></li>
+            <li><a href="/kontakty">Контакти</a></li>
+            <li><a href="/guest-master">TravelMaster</a></li>
+            <li><a href="https://www.instagram.com/skindreams.tattoo/?hl=ru">Inst</a></li>
+            <li><a href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Face</a></li>
+            <li><a href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Disc</a></li>
         </ul>
     </nav>
 </div>
 
 <section class="testimonial-section">
+    <form method="post" action="/new-client">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ><br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <!-- Ваш контент страницы -->
+</section>
+<section class="testimonial-section">MANY TEXT MANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXT
+    MANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXT
+    MANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXTMANY TEXT
+</section>
+
+
+<section class="testimonial-section">
     <h2>Отзывы</h2>
     <ul>
-        <!-- Используем Thymeleaf для итерации по списку мастеров -->
+        <!-- Используем Thymeleaf для итерации по списку отзывов -->
         <th:block th:each="review : ${reviews}">
             <li th:text="${review.authorName}"></li>
             <br>
@@ -35,19 +110,51 @@
             <br><br>
         </th:block>
     </ul>
-
-    <!-- Место для отзывов -->
 </section>
+<!-- Футер, который появляется при прокрутке -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3>Контакты</h3>
+            <p>Адрес: ул. Примерная, 123</p>
+            <p>Телефон: +1 234 567 890</p>
+            <p>Email: info@example.com</p>
+        </div>
+        <div class="footer-column">
+            <h3>Ссылки</h3>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/services">Услуги</a></li>
+                <li><a href="/portfolio">Портфолио</a></li>
+                <li><a href="/contact">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Мы в социальных сетях</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Facebook</a></li>
+                <li><a href="https://www.instagram.com/skindreams.tattoo/">Instagram</a></li>
+                <li><a href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Twitter</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Все права защищены &copy; 2023</p>
+    </div>
+</footer>
 
-<section class="photo-section">
-    <h2>Фотографии</h2>
-    <!-- Место для фотографий -->
-</section>
+<script>
+    window.addEventListener('scroll', function() {
+        var footer = document.querySelector('.footer');
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var windowHeight = window.innerHeight;
 
-<section class="text-section">
-    <h2>Текст</h2>
-    <img th:src="@{/images/photo.jpg}" alt="Фото мастера">
-    <!-- Место для текста -->
-</section>
+        if (scrollTop > windowHeight) {
+            footer.style.bottom = '0'; /* Показать футер при достижении прокрутки */
+        } else {
+            footer.style.bottom = '-100px'; /* Скрыть футер */
+        }
+    });
+</script>
 </body>
 </html>

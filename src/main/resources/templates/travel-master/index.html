@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Гостьові Майстри</title>
+</head>
+<body>
+
+  <form method="post" action="/guest-master/new-guest-master">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="socialMedia">Соц мережі:</label>
+    <input type="text" id="socialMedia" name="socialMedia" required><br><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" ><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" ><br><br>
+
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" ><br><br>
+
+    <button type="submit">Отправить</button>
+  </form>
+
+
+<section>
+  <h2>Гостьові Майстри</h2>
+  <ul>
+    <!-- Используем Thymeleaf для итерации по списку отзывов -->
+    <th:block th:each="master : ${guestMasters}">
+      <li th:text="${master.name}"></li>
+      <br>
+      <li th:text="${master.socialMedia}"></li>
+      <br>
+    </th:block>
+  </ul>
+</section>
+
+
+
+</body>
+</html>

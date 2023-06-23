@@ -32,10 +32,6 @@ public class Client {
     private String name;
 
 
-    @Column(name = "last_name")
-    private String lastName;
-
-
     @Column(name = "phone")
     private String phone;
 

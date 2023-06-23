@@ -10,9 +10,8 @@ CREATE TABLE IF NOT EXISTS clients
 (
     id                int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name              VARCHAR(255) not null,
-    last_name         VARCHAR(255) not null,
     phone             VARCHAR(255) not null,
-    email             VARCHAR(255) unique,
+    email             VARCHAR(255),
     registration_time TIMESTAMP
 );
 

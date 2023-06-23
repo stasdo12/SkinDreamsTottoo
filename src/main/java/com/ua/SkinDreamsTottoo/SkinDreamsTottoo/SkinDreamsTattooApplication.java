@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SkinDreamsTottooApplication {
+public class SkinDreamsTattooApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SkinDreamsTottooApplication.class, args);
+		SpringApplication.run(SkinDreamsTattooApplication.class, args);
 	}
 
 	@Bean
