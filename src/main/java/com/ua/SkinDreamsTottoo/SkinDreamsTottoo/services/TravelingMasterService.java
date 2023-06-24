@@ -3,6 +3,7 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services;
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.TravelingMasterDTO;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.TravelingMaster;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.repositories.TravelingMasterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -34,8 +35,7 @@ public class TravelingMasterService {
 
     public TravelingMaster findTravelingMasterById(long id){
         log.info("Found Traveling Master By Id");
-        return travelingMasterRepository.findById(id).orElse(null);
-        //TODO or else exception
+        return travelingMasterRepository.findById(id).orElseThrow(()->new SDException("Traveling master not Found"));
     }
 
     @Transactional

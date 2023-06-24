@@ -2,6 +2,7 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services;
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.MasterDTO;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Master;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.repositories.MasterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -35,8 +36,7 @@ public class MasterService {
 
     public Master findMasterById(long id){
         log.info("Found Master By Id");
-        return masterRepository.findById(id).orElse(null);
-        //TODO or else exception
+        return masterRepository.findById(id).orElseThrow(()-> new SDException("Master not Found"));
     }
 
 

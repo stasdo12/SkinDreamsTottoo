@@ -2,6 +2,7 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services;
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.ClientDTO;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.repositories.ClientRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -33,8 +34,7 @@ public class ClientService {
 
     public Client findClientById(long id){
         log.info("Found Client By Id");
-        return clientRepository.findById(id).orElse(null);
-        //TODO or else exception
+        return clientRepository.findById(id).orElseThrow(()->new SDException("Client not Found"));
     }
 
 

@@ -2,6 +2,7 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.ClientService;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,20 @@ public class HomeController {
         return "redirect:/";
 
     }
+
+    @ExceptionHandler(SDException.class)
+    public String handleClientException(SDException ex, Model model){
+        model.addAttribute("errorMassage", ex.getMessage());
+        return "templates/error/error-page";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handleException(Exception ex, Model model) {
+        model.addAttribute("errorMessage", ex.getMessage());
+        return "templates/error/error-page";
+    }
+
+
+
 
 }
