@@ -19,17 +19,15 @@ public class HomeController {
     private final ClientService clientService;
 
 
-    private final ReviewService reviewService;
+
 
     @Autowired
-    public HomeController(ClientService clientService, ReviewService reviewService) {
+    public HomeController(ClientService clientService) {
         this.clientService = clientService;
-        this.reviewService = reviewService;
     }
 
     @GetMapping
     public String mainPage(Model model){
-        model.addAttribute("reviews", reviewService.findAllReview());
         return "/main-page";
     }
 

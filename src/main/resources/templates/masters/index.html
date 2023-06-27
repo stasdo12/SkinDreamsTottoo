@@ -8,32 +8,48 @@
 </head>
 <body>
 <div class="container">
-<div class="row">
-    <div class="col-md-3">
-        <div class="sidebar">
-            <nav>
-                <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="/">Головна</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/uslugi">Послуги</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/tattoo-masters">Майстри</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/stili-tattoo">Стилі Тату</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/nash-blog">Блог</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/otzyvy">Відгуки</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/kontakty">Контакти</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/guest-master">TravelMaster</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/skindreams.tattoo/?hl=ru">Inst</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Face</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Disc</a></li>
-                </ul>
-            </nav>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar">
+                <nav>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="/">Головна</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/uslugi">Послуги</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/tattoo-masters">Майстри</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/stili-tattoo">Стилі Тату</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/nash-blog">Блог</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/otzyvy">Відгуки</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/kontakty">Контакти</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/guest-master">TravelMaster</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/skindreams.tattoo/?hl=ru">Inst</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Face</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/skindreams.tattoo/?locale=ru_RU">Disc</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h1>Список мастеров</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Специализация</th>
+                    <th scope="col">Социальные сети</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="master : ${masters}">
+                    <td><a th:href="@{/tattoo-masters/{id}(id=${master.id})}" th:text="${master.name}"></a></td>
+                    <td th:text="${master.specialization}"></td>
+                    <td>
+                        <a th:href="'http://www.instagram.com/' + ${master.socialMedia}" th:text="${master.socialMedia}" target="_blank"></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-<h1>Список мастеров</h1>
-<ul>
-
-    <li th:each="master : ${masters}">
-        <a th:href="@{/tattoo-masters/{id}(id=${master.id})}" th:text="${master.socialMedia}"></a>
-    </li>
-</ul>
+</div>
 </body>
 </html>

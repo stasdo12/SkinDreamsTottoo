@@ -16,6 +16,9 @@ public class MasterDTO {
 
 
     @NotEmpty
+    private long id;
+
+    @NotEmpty
     private String name;
 
     @NotEmpty

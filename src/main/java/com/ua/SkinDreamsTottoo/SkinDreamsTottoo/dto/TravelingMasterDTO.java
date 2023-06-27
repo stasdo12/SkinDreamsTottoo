@@ -16,6 +16,10 @@ import org.springframework.stereotype.Component;
 @Builder
 public class TravelingMasterDTO {
 
+
+    @NotEmpty
+    private long id;
+
     @NotEmpty
     private String name;
 

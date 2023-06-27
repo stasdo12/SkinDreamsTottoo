@@ -12,5 +12,7 @@ public class BlogController {
     @GetMapping
     public String blogPage(){
         return "blog/index";
+
+        //TODO sql blog and service
     }
 }

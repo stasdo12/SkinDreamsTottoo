@@ -39,6 +39,10 @@ public class MasterService {
         return masterRepository.findById(id).orElseThrow(()-> new SDException("Master not Found"));
     }
 
+    public Master findMasterByName(String name){
+        return masterRepository.findMasterByName(name);
+    }
+
 
     @Transactional
     public Master saveMaster(Master master){

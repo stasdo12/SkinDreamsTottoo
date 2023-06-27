@@ -29,4 +29,6 @@ public class ClientDTO {
     @Email
     private String email;
 
+    private String question;
+
 }

@@ -1,15 +1,15 @@
 package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 
 
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.TravelingMasterDTO;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.TravelingMaster;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.TravelingMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -29,16 +29,21 @@ public class TravelMasterController {
 
 
     @GetMapping
-    public String gestMasterPage(Model model) {
-        model.addAttribute("guestMasters", travelingMasterService.findAllTravelingMaster());
+    public String gestMasterPage(
+            @RequestParam(required = false, defaultValue = "0") int page,
+            @RequestParam(required = false, defaultValue = "2") int size,
+            Model model) {
+        Pageable pageable = PageRequest.of(page, size);
+        model.addAttribute("guestMasters", travelingMasterService.findAllTravelingMaster(pageable));
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", size);
         return "travel-master/index";
     }
 
 
     @PostMapping("/new-guest-master")
-    public String newGuest(@ModelAttribute TravelingMaster travelingMaster) {
-        travelingMaster.setDesiredDates(List.of(LocalDate.of(1994, Month.APRIL, 12)));
-        travelingMasterService.saveTravelingMaster(travelingMaster);
+    public String newGuest(@ModelAttribute TravelingMasterDTO travelingMasterDTO) {
+        travelingMasterService.saveTravelingMaster(travelingMasterService.convertTravelingMasterDTOToTravelingMaster(travelingMasterDTO));
         return "redirect:/";
     }
 

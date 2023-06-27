@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS clients
     name              VARCHAR(255) not null,
     phone             VARCHAR(255) not null,
     email             VARCHAR(255),
-    registration_time TIMESTAMP
+    registration_time TIMESTAMP,
+    question varchar(255)
 );
 
 

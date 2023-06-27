@@ -41,4 +41,7 @@ public class Client {
 
     @Column(name = "registration_time")
     private LocalDateTime registrationTime;
+
+    @Column(name = "question")
+    private String question;
 }

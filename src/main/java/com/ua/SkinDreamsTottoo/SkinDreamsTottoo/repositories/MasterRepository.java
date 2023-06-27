@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MasterRepository extends JpaRepository<Master, Long> {
+
+    Master findMasterByName(String name);
 }

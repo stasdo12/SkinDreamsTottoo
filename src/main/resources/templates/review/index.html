@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Review</title>
+  <meta charset="UTF-8">
+  <title>Review</title>
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -29,23 +29,75 @@
       </div>
     </div>
 
-<section class="testimonial-section">
-  <h2>Отзывы</h2>
-  <ul>
-    <!-- Используем Thymeleaf для итерации по списку отзывов -->
-    <th:block th:each="review : ${reviews}">
-      <li th:text="${review.authorName}"></li>
-      <br>
-      <li th:text="${review.text}"></li>
-      <br>
-      <li th:text="${review.rating}"></li>
-      <br>
-      <li th:text="${review.master.name}"></li>
-      <br><br>
-    </th:block>
-  </ul>
-</section>
+    <div class="col-md-9">
+      <section class="testimonial-section">
+        <h2>Отзывы</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Автор</th>
+              <th>Текст отзыва</th>
+              <th>Рейтинг</th>
+              <th>Мастер</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Используем Thymeleaf для итерации по списку отзывов -->
+            <tr th:each="review : ${reviews}">
+              <td th:text="${review.authorName}"></td>
+              <td th:text="${review.text}"></td>
+              <td th:text="${review.rating}"></td>
+              <td th:text="${review.master.name}"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <h1>Залишити відгук</h1>
+        <div class="col-md-9">
+          <form method="post" action="/otzyvy/add-review">
+            <div class="form-group">
+              <label for="authorName">AuthorName : </label>
+              <input type="text" class="form-control" id="authorName" name="authorName" required>
+            </div>
+
+            <div class="form-group">
+              <label for="text">Text : </label>
+              <input type="text" class="form-control" id="text" name="text" required>
+            </div>
+
+            <div class="form-group">
+              <label for="rating">Rating : </label>
+              <input type="number" class="form-control" id="rating" name="rating" required>
+            </div>
+
+            <div class="form-group">
+              <label for="masterName">Master:</label>
+              <select class="form-control" id="masterName" name="masterName" required>
+                <!-- Use Thymeleaf to iterate over the list of masters -->
+                <option th:each="master : ${masters}" th:value="${master.name}" th:text="${master.name}"></option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+          </form>
+        </div>
 
 
+      </section>
+      <div class="pagination">
+        <ul>
+          <!-- Создание ссылок для перехода по страницам -->
+          <li th:each="pageNumber : ${#numbers.sequence(0, reviews.totalPages - 1)}">
+            <a th:href="@{/otzyvy(page=${pageNumber}, size=${pageSize})}"
+               th:class="${pageNumber} == ${currentPage} ? 'active'">[[${pageNumber}]]</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
