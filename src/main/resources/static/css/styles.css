@@ -1,164 +1,123 @@
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/*Main sentence, all the page*/
+.main-greeting {
+    font-weight: 800;
+    margin-top: 450px;
+    color: white;
+    font-family: Monaco, monospace;
+    font-size: 32px;
+    text-align: center;
+    background-color: black;
+    opacity: 0.9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 385px;
+    width: 900px;
 }
 
-nav li {
-    margin-bottom: 10px;
-}
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
+@media screen and (min-width: 320px) and (max-width: 767px) {
 
-
-.sidebar {
-    background-color: #f8f9fa;;
-    width: 200px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar a {
-    text-decoration: none;
-    color: #000;
-}
-
-.sidebar ul li a {
-    display: block;
-    text-decoration: none;
-    color: #333;
-    padding: 5px;
-    background-color: #dddddd;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.sidebar ul li a:hover {
-    background-color: #cccccc;
-}
-
-/* Стили для секций */
-section {
-    margin-left: 220px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin-top: 0;
-}
-
-/* Дополнительные стили, чтобы сделать пример более привлекательным */
-.testimonial-section {
-    background-color: #f9f9f9;
-}
-
-.photo-section {
-    background-color: #eaeaea;
-}
-
-.text-section {
-    background-color: #f5f5f5;
-}
-
-/* Стили для кнопок */
-.button {
-    background-color: #999999;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #777777;
-}
-
-/* Медиа-запросы для адаптивности */
-@media screen and (max-width: 768px) {
-    /* Стили для маленьких экранов */
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
-    }
-
-    section {
-        margin-left: 0;
+    .main-greeting {
+        margin-top: 80px;
+        margin-left: 40px;
+        margin-right: 50px;
+        width: auto;
+        font-size: 24px;
     }
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .main-greeting {
+        margin-top: 600px;
+        margin-left: 270px;
+        margin-right: 100px;
+        width: auto;
+        font-size: 28px;
+    }
 }
 
-.pagination ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+@media (min-width: 992px) and (max-width: 1199px) {
+    .main-greeting {
+        margin-top: 445px;
+        margin-left: 344px;
+        margin-right: 200px;
+        width: auto;
+        font-size: 32px;
+    }
 }
-
-.pagination li {
-    display: inline-block;
-    margin-right: 5px;
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .main-greeting {
+        margin-top: 930px;
+        margin-left: 390px;
+        margin-right: 200px;
+        width: auto;
+        font-size: 32px;
+    }
 }
-
-.pagination li a {
-    display: block;
-    padding: 5px 10px;
-    text-decoration: none;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    color: #333;
-}
-
-.pagination li a:hover {
-    background-color: #e6e6e6;
-}
-
-.pagination li.active a {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-}
-
-.pagination li.disabled a {
-    pointer-events: none;
-    background-color: #f2f2f2;
-    border-color: #ccc;
-    color: #999;
+@media (min-width: 1400px) {
+    .main-greeting {
+        margin-top: 500px;
+        margin-left: 407px;
+        margin-right: auto;
+        width: 900px;
+        font-size: 32px;
+    }
 }
 
 
-*, *:before, *:after {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+@media (min-width: 1500px) {
+    .main-greeting {
+        margin-top: 500px;
+        margin-left: 407px;
+        margin-right: auto;
+        width: 900px;
+        font-size: 32px;
+    }
+}
+@media (min-width: 1600px) {
+    .main-greeting {
+        margin-top: 506px;
+        margin-left: 441px;
+        margin-right: auto;
+        width: 900px;
+        font-size: 32px;
+    }
+}
+@media (min-width: 1700px) {
+    .main-greeting {
+        margin-top: 545px;
+        margin-left: 467px;
+        margin-right: auto;
+        width: 900px;
+        font-size: 32px;
+    }
 }
 
+@media (min-width: 1800px) {
+    .main-greeting {
+        margin-top: 574px;
+        margin-left: 538px;
+        margin-right: auto;
+        width: 900px;
+        font-size: 32px;
+    }
+}
+@media (min-width: 1900px) {
+    .main-greeting {
+        margin-top: 608px;
+        margin-left: 538px;
+        margin-right: auto;
+        width: 900px;
+        font-size: 32px;
+    }
+}
+
+
+
+/*Body Images*/
 body {
     background-image: url("./static/images/BackGround.jpg");
-    background-position-x: 85px;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -170,6 +129,47 @@ body, button, input {
     font-weight: 700;
     letter-spacing: 1.4px;
 }
+@media screen and (max-width: 480px) {
+    body {
+        background-image: url("./static/images/phone.jpeg");
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    body {
+        background-image: url("./static/images/phone.jpeg");
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    body {
+        background-image: url("./static/images/phone.jpeg");
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    body {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/*INPUT FORM*/
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
 
 .background {
     margin-left: 160px;
@@ -180,7 +180,7 @@ body, button, input {
 .container {
     flex: 0 1 700px;
     padding: 10px;
-    margin-top: 300px;
+    margin-top: 50px;
 
 }
 
@@ -188,7 +188,7 @@ body, button, input {
     position: relative;
     background: #3e3e3e;
     border-radius: 15px;
-    margin-top: 300px;
+    margin-top: 370px;
 
 
 }
@@ -396,6 +396,202 @@ body, button, input {
         padding: 0;
     }
 }
+@media screen and (max-width: 767px) {
+    .background {
+        margin-left: 0;
+    }.container {
+         margin-top: 20px;
+     }
+
+    .screen {
+        margin-top: 200px;
+    }
+
+    .screen-body {
+        margin-top: 30px;
+    }
+
+    .screen-body-item {
+        padding: 30px;
+    }
+
+    .app-form-group.buttons {
+        text-align: center;
+    }
+}
+@media screen and (max-width: 991px) {
+    .container {
+        padding: 20px;
+    }.screen-body-item {
+         padding: 20px;
+     }
+}
+
+
+/*CONTACT*/
+.contact-info-text {
+    margin-top: 10px;
+    font-family: Monaco, monospace;
+    color: white;
+}
+
+.contact-info-label {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    color: #ea1d6f;
+    font-size: 20px;
+}
+@media screen and (max-width: 767px) {
+    .contact-info-label {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contact-info-label {
+        font-size: 14px;
+    }
+}
+
+/*SIDEBAR*/
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+
+.main {
+    margin-left: 9px; /* Same as the width of the sidebar */
+    padding: 0 10px;
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+/*Main Text for all pages*/
+.main-text {
+    border-radius: 20px;
+    background-color:  rgba(62, 62, 62, 0.6);
+    text-align: center;
+    color: #ffffff;
+    max-width: 100%;
+    margin-left: 187px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top:280px ;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .main-text {
+        font-size: 16px; /* Розмір тексту для малих пристроїв */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main-text {
+        font-size: 14px; /* Розмір тексту для дуже малих пристроїв */
+    }
+}
+
+/*Main Photo for all pages*/
+.main-page-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Встановіть бажану висоту контейнера */
+}
+
+.main-page-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*FixThis*/
+    section {
+        margin-left: 0;
+    }
+
+
+
+section {
+    margin-left: 220px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pagination li a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.pagination li a:hover {
+    background-color: #e6e6e6;
+}
+
+.pagination li.active a {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.pagination li.disabled a {
+    pointer-events: none;
+    background-color: #f2f2f2;
+    border-color: #ccc;
+    color: #999;
+}
+
+
+
+
 
 
 /* CONTACT PAGE*/
@@ -419,20 +615,8 @@ body, button, input {
     padding: 10px;
 }
 
-/* main-greeting sentence on the home page*/
-.main-greeting {
-    font-weight: 800;
-    margin-top: 200px;
-    color: white;
-    font-family: Monaco, monospace;
-    font-size: 32px;
-    text-align: center;
-    background-color: black;
-    opacity: 0.9;
-    padding: 10px;
-    border-radius: 10px;
-    margin-left: 385px;
-    width: 900px;
-}
+
+
+
 
 

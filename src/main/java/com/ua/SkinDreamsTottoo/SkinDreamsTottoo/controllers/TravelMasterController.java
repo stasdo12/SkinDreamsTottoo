@@ -31,7 +31,7 @@ public class TravelMasterController {
     @GetMapping
     public String gestMasterPage(
             @RequestParam(required = false, defaultValue = "0") int page,
-            @RequestParam(required = false, defaultValue = "2") int size,
+            @RequestParam(required = false, defaultValue = "5") int size,
             Model model) {
         Pageable pageable = PageRequest.of(page, size);
         model.addAttribute("guestMasters", travelingMasterService.findAllTravelingMaster(pageable));
