@@ -17,6 +17,37 @@
     <a href="/kontakty">Контакти</a>
     <a href="/guest-master">Travel Master</a>
 </div>
+<div class="container-logo">
+    <h1 class="neon-text">SKIN DREAMS</h1>
+    <h2 class="neon-text">TATTOO STUDIO</h2>
+</div>
 <h1 class="main-greeting">БЛОГ</h1>
+
+<section>
+    <h2 neon-text>Наш Блог</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Тема:</th>
+                <th>Суть:</th>
+                <th>Дата:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Используем Thymeleaf для итерации по списку гостевых мастеров -->
+            <th:block th:each="blog : ${blogs}">
+                <tr>
+                    <td th:text="${blog.title}"></td>
+                    <td th:text="${blog.text}"></td>
+                    <td th:text="${blog.registrationTime}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
 </body>
 </html>

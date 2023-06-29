@@ -2,7 +2,6 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.TravelingMasterDTO;
-import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.TravelingMaster;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.TravelingMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -11,9 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.List;
+
 
 @Controller
 @RequestMapping("/guest-master")
@@ -44,7 +41,7 @@ public class TravelMasterController {
     @PostMapping("/new-guest-master")
     public String newGuest(@ModelAttribute TravelingMasterDTO travelingMasterDTO) {
         travelingMasterService.saveTravelingMaster(travelingMasterService.convertTravelingMasterDTOToTravelingMaster(travelingMasterDTO));
-        return "redirect:/";
+        return "redirect:/guest-master#success";
     }
 
 

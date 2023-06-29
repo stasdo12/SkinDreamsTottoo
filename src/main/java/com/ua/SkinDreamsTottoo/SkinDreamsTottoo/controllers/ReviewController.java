@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/otzyvy")
@@ -43,10 +44,12 @@ public class ReviewController {
 
 
     @PostMapping("/add-review")
-    public String addReview(@ModelAttribute Review review, @RequestParam("masterName") String masterName){
+    public String addReview(@ModelAttribute Review review, @RequestParam("masterName") String masterName,
+                            RedirectAttributes redirectAttributes){
         Master selectedMaster = masterService.findMasterByName(masterName);
         review.setMaster(selectedMaster);
         reviewService.saveReview(review);
-        return "redirect:/otzyvy";
+        redirectAttributes.addFlashAttribute("successMessage", "Спасибо, ваш отзыв был отправлен.");
+        return "redirect:/otzyvy#success";
     }
 }

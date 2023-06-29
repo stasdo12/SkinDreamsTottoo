@@ -58,6 +58,17 @@ CREATE TABLE IF NOT EXISTS traveling_master_desired_dates
 
 
 
+DROP TABLE IF EXISTS blog ;
+CREATE TABLE IF NOT EXISTS blog
+(
+    id  int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    title varchar(228) not null,
+    text TEXT not null,
+    registration_time TIMESTAMP
+
+);
+
+
 
 
 

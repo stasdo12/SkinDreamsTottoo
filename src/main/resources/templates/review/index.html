@@ -17,9 +17,12 @@
   <a href="/kontakty">Контакти</a>
   <a href="/guest-master">Travel Master</a>
 </div>
-
+<div class="container-logo">
+  <h1 class="neon-text">SKIN DREAMS</h1>
+  <h2 class="neon-text">TATTOO STUDIO</h2>
+</div>
 <h1 class="main-greeting">Відгуки SkinDreams</h1>
-<div class="background">
+<div class="background" >
   <div class="container">
     <div class="screen">
       <div class="screen-header">
@@ -34,9 +37,9 @@
           <div class="screen-header-ellipsis"></div>
         </div>
       </div>
-      <div class="screen-body">
+      <div class="screen-body" id="success">
         <div class="screen-body-item left">
-          <div class="app-title">
+          <div class="app-title" >
             <span>ЗАПИСАТИСЯ </span>
             <span>НА КОНСТУЛЬТАЦІЮ</span>
           </div>
@@ -44,26 +47,33 @@
         </div>
         <div class="screen-body-item">
           <div class="app-form">
-            <form method="post" action="/otzyvy/add-review">
+            <form method="post" action="/otzyvy/add-review" onsubmit="return validateForm()">
               <div class="app-form-group">
-                <label for="authorName"></label><input class="app-form-control" type="text" id="authorName" name="authorName" placeholder="NAME">
+                <label for="authorName"></label>
+                <input class="app-form-control" type="text" id="authorName" name="authorName" placeholder="NAME" required>
               </div>
               <div class="app-form-group">
-                <label for="text"></label><input class="app-form-control" id="text" name="text" placeholder="COMMENT">
+                <label for="text"></label>
+                <input class="app-form-control" id="text" name="text" placeholder="COMMENT" required>
               </div>
               <div class="app-form-group">
-                <label for="rating"></label><input type="number" class="app-form-control" id="rating" name="rating" placeholder="RAITING">
+                <label for="rating"></label>
+                <input type="number" class="app-form-control" id="rating" name="rating" placeholder="RAITING" required>
               </div>
               <div class="app-form-group">
-                <label for="rating"></label><select class="form-control" id="masterName" name="masterName" required>
-                <!-- Use Thymeleaf to iterate over the list of masters -->
-                <option th:each="master : ${masters}" th:value="${master.name}" th:text="${master.name}"></option>
-              </select>
+                <label for="rating"></label>
+                <select class="form-control" id="masterName" name="masterName" required>
+                  <!-- Use Thymeleaf to iterate over the list of masters -->
+                  <option th:each="master : ${masters}" th:value="${master.name}" th:text="${master.name}"></option>
+                </select>
               </div>
               <div class="app-form-group buttons">
                 <button class="app-form-button">SEND</button>
               </div>
             </form>
+            <div class="success-message" >
+              <span th:if="${successMessage}" th:text="${successMessage}"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -84,6 +94,23 @@
     </div>
   </div>
 </div>
+
+<script>
+  function validateForm() {
+    var authorName = document.getElementById("authorName").value;
+    var comment = document.getElementById("text").value;
+    var rating = document.getElementById("rating").value;
+    var masterName = document.getElementById("masterName").value;
+
+    if (authorName === "" || comment === "" || rating === "" || masterName === "") {
+      alert("Please fill in all fields");
+      return false;
+    }
+
+    return true;
+  }
+</script>
+
 <div class="table-responsive">
   <table class="table">
     <thead>
