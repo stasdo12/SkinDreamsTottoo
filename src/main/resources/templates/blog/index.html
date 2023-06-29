@@ -7,16 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<div class="sidenav">
-    <a href="/">Головна</a>
-    <a href="/uslugi">Послуги</a>
-    <a href="/tattoo-masters">Майстри</a>
-    <a href="/stili-tattoo">Стилі Тату</a>
-    <a href="/nash-blog">Блог</a>
-    <a href="/otzyvy">Відгуки</a>
-    <a href="/kontakty">Контакти</a>
-    <a href="/guest-master">Travel Master</a>
-</div>
+<div th:replace="fragments/sidenav :: sidenav"></div>
 <div class="container-logo">
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
@@ -24,7 +15,7 @@
 <h1 class="main-greeting">БЛОГ</h1>
 
 <section>
-    <h2 neon-text>Наш Блог</h2>
+    <h2 class="neon-text">Наш Блог</h2>
     <div class="table-responsive">
         <table class="table">
             <thead>

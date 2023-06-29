@@ -5,21 +5,14 @@
   <title>Review</title>
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
-<div class="sidenav">
-  <a href="/">Головна</a>
-  <a href="/uslugi">Послуги</a>
-  <a href="/tattoo-masters">Майстри</a>
-  <a href="/stili-tattoo">Стилі Тату</a>
-  <a href="/nash-blog">Блог</a>
-  <a href="/otzyvy">Відгуки</a>
-  <a href="/kontakty">Контакти</a>
-  <a href="/guest-master">Travel Master</a>
-</div>
+<div th:replace="fragments/sidenav :: sidenav"></div>
+
 <div class="container-logo">
   <h1 class="neon-text">SKIN DREAMS</h1>
-  <h2 class="neon-text">TATTOO STUDIO</h2>
+  <h2 class="neon-text">tattoo studio</h2>
 </div>
 <h1 class="main-greeting">Відгуки SkinDreams</h1>
 <div class="background" >
@@ -40,8 +33,8 @@
       <div class="screen-body" id="success">
         <div class="screen-body-item left">
           <div class="app-title" >
-            <span>ЗАПИСАТИСЯ </span>
-            <span>НА КОНСТУЛЬТАЦІЮ</span>
+            <span>ЗАЛИШИТИ </span>
+            <span>ВІДГУК</span>
           </div>
           <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
         </div>
@@ -135,7 +128,7 @@
       <div class="pagination">
         <ul>
           <!-- Создание ссылок для перехода по страницам -->
-          <li th:each="pageNumber : ${#numbers.sequence(0, reviews.totalPages - 1)}">
+          <li th:each="pageNumber : ${#numbers.sequence(0, reviews.totalPages)}">
             <a th:href="@{/otzyvy(page=${pageNumber}, size=${pageSize})}"
                th:class="${pageNumber} == ${currentPage} ? 'active'">[[${pageNumber}]]</a>
           </li>
