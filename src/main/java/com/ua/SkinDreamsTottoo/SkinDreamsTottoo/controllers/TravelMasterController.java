@@ -2,6 +2,7 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.TravelingMasterDTO;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.TravelingMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -9,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -28,7 +29,7 @@ public class TravelMasterController {
     @GetMapping
     public String gestMasterPage(
             @RequestParam(required = false, defaultValue = "0") int page,
-            @RequestParam(required = false, defaultValue = "5") int size,
+            @RequestParam(required = false, defaultValue = "10") int size,
             Model model) {
         Pageable pageable = PageRequest.of(page, size);
         model.addAttribute("guestMasters", travelingMasterService.findAllTravelingMaster(pageable));
@@ -39,9 +40,21 @@ public class TravelMasterController {
 
 
     @PostMapping("/new-guest-master")
-    public String newGuest(@ModelAttribute TravelingMasterDTO travelingMasterDTO) {
+    public String newGuest(@ModelAttribute TravelingMasterDTO travelingMasterDTO, RedirectAttributes redirectAttributes) {
         travelingMasterService.saveTravelingMaster(travelingMasterService.convertTravelingMasterDTOToTravelingMaster(travelingMasterDTO));
+        redirectAttributes.addFlashAttribute("successMessage","ДЯКУЮ з Вами скоро зв'яжуться");
         return "redirect:/guest-master#success";
+    }
+    @ExceptionHandler(SDException.class)
+    public String handleClientException(SDException ex, Model model){
+        model.addAttribute("errorMassage", ex.getMessage());
+        return "templates/error/error-page";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handleException(Exception ex, Model model) {
+        model.addAttribute("errorMessage", ex.getMessage());
+        return "templates/error/error-page";
     }
 
 

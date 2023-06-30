@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>SkinDreamsTatooCo</title>
@@ -8,15 +8,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="sidenav">
-    <a href="/">Головна</a><a href="/uslugi">Послуги</a>
-    <a href="/tattoo-masters">Майстри</a>
-    <a href="/stili-tattoo">Стилі Тату</a>
-    <a href="/nash-blog">Блог</a>
-    <a href="/otzyvy">Відгуки</a>
-    <a href="/kontakty">Контакти</a>
-    <a href="/guest-master">Travel Master</a>
-</div>
+<div th:replace="~{fragments/sidenav :: sidenav}"></div>
+
 <div class="container-logo">
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
@@ -59,29 +52,37 @@
                     <div class="screen-header-ellipsis"></div>
                 </div>
             </div>
-            <div class="screen-body">
+            <div class="screen-body" id="success">
                 <div class="screen-body-item left">
                     <div class="app-title"><span>ЗАПИСАТИСЯ</span><span>НА КОНСТУЛЬТАЦІЮ</span></div>
                     <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
-                        <form method="post" action="/new-client">
-                            <div class="app-form-group"><label for="name"></label><input class="app-form-control"
-                                                                                         type="text" id="name"
-                                                                                         name="name" placeholder="NAME">
+                        <!--/*@thymesVar id="client" type="com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client"*/-->
+                        <form th:object="${client}" method="post" action="/new-client" onsubmit="return validateForm()">
+                            <div class="app-form-group">
+                                <label for="name"></label>
+                                <input  class="app-form-control" type="text" id="name" name="name"
+                                       placeholder="NAME" required />
                             </div>
-                            <div class="app-form-group"><label for="phone"></label><input class="app-form-control"
-                                                                                          id="phone" name="phone"
-                                                                                          placeholder="CONTACT NO">
+                            <div class="app-form-group">
+                                <label for="phone"></label>
+                                <input type="text" class="app-form-control" id="phone" name="phone"
+                                       placeholder="CONTACT NO" required>
                             </div>
-                            <div class="app-form-group"><label for="email"></label><input class="app-form-control"
-                                                                                          id="email" name="email"
-                                                                                          placeholder="EMAIL"></div>
+                            <div class="app-form-group">
+                                <label for="email"></label>
+                                <input type="email" class="app-form-control" id="email" name="email"
+                                       placeholder="EMAIL">
+                            </div>
                             <div class="app-form-group buttons">
                                 <button class="app-form-button">SEND</button>
                             </div>
                         </form>
+                        <div class="success-message">
+                            <span th:if="${successMessage}" th:text="${successMessage}"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,6 +101,7 @@
             </svg>
             SkinDreams Tattoo Co</a></div>
     </div>
+    <script src="/css/js/script.js"></script>
 </div>
 </body>
 </html>

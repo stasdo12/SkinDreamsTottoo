@@ -1,5 +1,6 @@
 package com.ua.SkinDreamsTottoo.SkinDreamsTottoo;
 
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.validatior.ClientValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,4 +19,9 @@ public class SkinDreamsTattooApplication {
 		return new ModelMapper();
 	}
 
+
+	@Bean
+	public ClientValidator clientValidator() {
+		return new ClientValidator();
+	}
 }

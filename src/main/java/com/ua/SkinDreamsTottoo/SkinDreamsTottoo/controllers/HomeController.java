@@ -4,11 +4,15 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.ClientService;
-import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.ReviewService;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.validatior.ClientValidator;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
 
@@ -17,25 +21,34 @@ import java.time.LocalDateTime;
 
 public class HomeController {
     private final ClientService clientService;
+    private final ClientValidator clientValidator;
 
 
 
 
     @Autowired
-    public HomeController(ClientService clientService) {
+    public HomeController(ClientService clientService, ClientValidator clientValidator) {
         this.clientService = clientService;
+        this.clientValidator = clientValidator;
     }
 
     @GetMapping
-    public String mainPage(Model model){
+    public String mainPage(){
         return "/main-page";
     }
 
     @PostMapping("/new-client")
-    public String orderTattoo(@ModelAttribute Client client){
+    public String orderTattoo(@ModelAttribute("client") @Valid Client client,BindingResult bindingResult,
+                              RedirectAttributes redirectAttributes){
+        clientValidator.validate(client, bindingResult);
+        if (bindingResult.hasErrors())
+            return "/";
+
         client.setRegistrationTime(LocalDateTime.now());
         clientService.saveClient(client);
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("successMessage", "ДЯКУЮ з Вами скоро зв'яжуться");
+        return "redirect:/#success";
+        //TODO everywhere
 
     }
 

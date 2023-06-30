@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<div th:replace="fragments/sidenav :: sidenav"></div>
+<div th:replace="~{fragments/sidenav :: sidenav}"></div>
 <div class="container-logo">
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
@@ -36,5 +36,68 @@
             </div>
         </div>
     </div>
+<div class="background">
+    <div class="container">
+        <div class="screen">
+            <div class="screen-header">
+                <div class="screen-header-left">
+                    <div class="screen-header-button close"></div>
+                    <div class="screen-header-button maximize"></div>
+                    <div class="screen-header-button minimize"></div>
+                </div>
+                <div class="screen-header-right">
+                    <div class="screen-header-ellipsis"></div>
+                    <div class="screen-header-ellipsis"></div>
+                    <div class="screen-header-ellipsis"></div>
+                </div>
+            </div>
+            <div class="screen-body" id="success">
+                <div class="screen-body-item left">
+                    <div class="app-title">
+                        <span>ЗАДАЙТЕ </span>
+                        <span>НАМ ПИТАННЯ</span>
+                    </div>
+                    <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
+                </div>
+                <div class="screen-body-item">
+                    <div class="app-form">
+                        <form method="post" action="/stili-tattoo/question">
+                            <div class="app-form-group">
+                                <label for="name"></label><input class="app-form-control" type="text" id="name" name="name" placeholder="NAME" required>
+                            </div>
+                            <div class="app-form-group">
+                                <label for="phone"></label><input class="app-form-control" id="phone" name="phone" placeholder="CONTACT NO" required>
+                            </div>
+                            <div class="app-form-group">
+                                <label for="question"></label><input class="app-form-control" id="question" name="question" placeholder="QUESTION" required>
+                            </div>
+                            <div class="app-form-group buttons">
+                                <button class="app-form-button">SEND</button>
+                            </div>
+                        </form>
+                        <div class="success-message">
+                            <span th:if="${successMessage}" th:text="${successMessage}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="credits">
+            Created by
+            <a class="credits-link" href="https://skindreams.tattoo/" target="_blank">
+                <svg class="dribbble" viewBox="0 0 200 200">
+                    <g stroke="#ffffff" fill="none">
+                        <circle cx="100" cy="100" r="90" stroke-width="20"></circle>
+                        <path d="M62.737004,13.7923523 C105.08055,51.0454853 135.018754,126.906957 141.768278,182.963345" stroke-width="20"></path>
+                        <path d="M10.3787186,87.7261455 C41.7092324,90.9577894 125.850356,86.5317271 163.474536,38.7920951" stroke-width="20"></path>
+                        <path d="M41.3611549,163.928627 C62.9207607,117.659048 137.020642,86.7137169 189.041451,107.858103" stroke-width="20"></path>
+                    </g>
+                </svg>
+                SkinDreams Tattoo Co
+            </a>
+        </div>
+    </div>
+    <script src="/css/js/script.js"></script>
+</div>
 </body>
 </html>

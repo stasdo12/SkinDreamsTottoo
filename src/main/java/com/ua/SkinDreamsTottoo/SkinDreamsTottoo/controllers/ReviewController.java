@@ -2,6 +2,7 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Master;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Review;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.MasterService;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,20 @@ public class ReviewController {
         Master selectedMaster = masterService.findMasterByName(masterName);
         review.setMaster(selectedMaster);
         reviewService.saveReview(review);
-        redirectAttributes.addFlashAttribute("successMessage", "Спасибо, ваш отзыв был отправлен.");
+        redirectAttributes.addFlashAttribute("successMessage", "Дякую, ваш відгук було відправлено.");
         return "redirect:/otzyvy#success";
     }
+
+    @ExceptionHandler(SDException.class)
+    public String handleClientException(SDException ex, Model model){
+        model.addAttribute("errorMassage", ex.getMessage());
+        return "templates/error/error-page";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handleException(Exception ex, Model model) {
+        model.addAttribute("errorMessage", ex.getMessage());
+        return "templates/error/error-page";
+    }
+
 }
