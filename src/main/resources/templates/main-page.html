@@ -14,29 +14,8 @@
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
-<h1 class="main-greeting">Ласкаво просимо в тату салон SkinDreams</h1>
-<div class="main">
-    <div class="main-text"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
-        по-справжньому незабутніми. Наша команда талановитих тату-мастерів з готовністю перетворить ваші ідеї на живі
-        шедеври на вашій шкірі.</p>
-        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
-        <p>Ми пропонуємо широкий вибір дизайнів та стилів, включаючи реалістичне тату, традиційне, графічне, геометричне
-            та багато інших. Наші майстри володіють великим досвідом та технічними знаннями, що дозволяє нам забезпечити
-            якість та безпеку виконання кожного тату.</p>
-        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
-        <p>У нашій студії ми дбаємо про комфорт і задоволення наших клієнтів. Ми працюємо тільки з високоякісними
-            матеріалами та використовуємо сучасні стерилізаційні процедури, щоб забезпечити безпеку та гігієну в процесі
-            татування.</p>
-        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
-        <p>Наші тату-мастери завжди готові прислухатися до ваших бажань та порадити вам щодо дизайну, колірної гами та
-            розміщення тату. Ми відкриті до співпраці та готові зреалізувати ваші найсміливіші ідеї.</p>
-        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
-        <p>Запрошуємо вас відвідати нашу студію і довірити нам створення своєї особливої татуювання. SkinDreams - це
-            місце, де ваші мрії народжуються на шкірі!</p>
-        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
-        <p>Запишіться на консультацію зараз і зробіть перший крок до свого неповторного тату.</p>
-    </div>
-</div>
+
+
 <div class="background">
     <div class="container">
         <div class="screen">
@@ -60,21 +39,21 @@
                 <div class="screen-body-item">
                     <div class="app-form">
                         <!--/*@thymesVar id="client" type="com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client"*/-->
-                        <form th:object="${client}" method="post" action="/new-client" onsubmit="return validateForm()">
+                        <form th:method="POST" th:action="@{/new-client}" th:object="${client}" onsubmit="return validateForm()">
                             <div class="app-form-group">
                                 <label for="name"></label>
-                                <input  class="app-form-control" type="text" id="name" name="name"
-                                       placeholder="NAME" required />
+                                <input class="app-form-control" type="text" th:field="*{name}" id="name" placeholder="NAME" required/>
+                                <p id="error" style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="phone"></label>
-                                <input type="text" class="app-form-control" id="phone" name="phone"
-                                       placeholder="CONTACT NO" required>
+                                <input type="text" class="app-form-control" id="phone" name="phone" placeholder="CONTACT NO" required>
+                                <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="email"></label>
-                                <input type="email" class="app-form-control" id="email" name="email"
-                                       placeholder="EMAIL">
+                                <input type="email" class="app-form-control" id="email" name="email" placeholder="EMAIL (НЕ ОБОВЯЗКОВО)">
+                                <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name error</p>
                             </div>
                             <div class="app-form-group buttons">
                                 <button class="app-form-button">SEND</button>
@@ -102,6 +81,30 @@
             SkinDreams Tattoo Co</a></div>
     </div>
     <script src="/css/js/script.js"></script>
+</div>
+<h1 class="main-greeting">Ласкаво просимо в тату салон SkinDreams</h1>
+
+<div class="main">
+    <div class="main-text"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
+        по-справжньому незабутніми. Наша команда талановитих тату-мастерів з готовністю перетворить ваші ідеї на живі
+        шедеври на вашій шкірі.</p>
+        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
+        <p>Ми пропонуємо широкий вибір дизайнів та стилів, включаючи реалістичне тату, традиційне, графічне, геометричне
+            та багато інших. Наші майстри володіють великим досвідом та технічними знаннями, що дозволяє нам забезпечити
+            якість та безпеку виконання кожного тату.</p>
+        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
+        <p>У нашій студії ми дбаємо про комфорт і задоволення наших клієнтів. Ми працюємо тільки з високоякісними
+            матеріалами та використовуємо сучасні стерилізаційні процедури, щоб забезпечити безпеку та гігієну в процесі
+            татування.</p>
+        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
+        <p>Наші тату-мастери завжди готові прислухатися до ваших бажань та порадити вам щодо дизайну, колірної гами та
+            розміщення тату. Ми відкриті до співпраці та готові зреалізувати ваші найсміливіші ідеї.</p>
+        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
+        <p>Запрошуємо вас відвідати нашу студію і довірити нам створення своєї особливої татуювання. SkinDreams - це
+            місце, де ваші мрії народжуються на шкірі!</p>
+        <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
+        <p>Запишіться на консультацію зараз і зробіть перший крок до свого неповторного тату.</p>
+    </div>
 </div>
 </body>
 </html>

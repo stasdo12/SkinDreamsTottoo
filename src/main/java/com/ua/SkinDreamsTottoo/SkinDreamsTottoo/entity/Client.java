@@ -7,12 +7,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -27,6 +30,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "clients")
+@Valid
 public class Client implements Serializable {
 
     @Id
@@ -37,13 +41,14 @@ public class Client implements Serializable {
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     @Column(name = "name")
+    @Valid
     private String name;
 
     @NotEmpty(message = "Phone should not be empty")
     @Column(name = "phone")
     private String phone;
 
-    @NotEmpty(message = "Email should not be empty")
+
     @Email
     @Column(name = "email")
     private String email;

@@ -24,4 +24,8 @@ public class SkinDreamsTattooApplication {
 	public ClientValidator clientValidator() {
 		return new ClientValidator();
 	}
+
+
+
+
 }

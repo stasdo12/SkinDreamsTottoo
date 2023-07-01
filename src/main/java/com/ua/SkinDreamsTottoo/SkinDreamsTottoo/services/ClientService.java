@@ -4,6 +4,7 @@ import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.ClientDTO;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.repositories.ClientRepository;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class ClientService {
 
 
     @Transactional
-    public void saveClient(Client client){
+    public void saveClient(@Valid Client client){
         log.info("Save Client");
         clientRepository.save(client);
     }

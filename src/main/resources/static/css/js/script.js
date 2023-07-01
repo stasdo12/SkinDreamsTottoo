@@ -8,6 +8,12 @@ function validateForm() {
         alert("Please fill in all fields");
         return false;
     }
+    var errorElement = document.getElementById('error');
+    if (errorElement) {
+        errorElement.scrollIntoView();
+    }
 
     return true;
 }
+
+
