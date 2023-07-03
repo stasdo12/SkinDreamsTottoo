@@ -2,6 +2,7 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.TravelingMasterDTO;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.TravelingMaster;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.TravelingMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,12 @@ public class TravelMasterController {
 
     @GetMapping
     public String gestMasterPage(
+            //TODO make page from 1
             @RequestParam(required = false, defaultValue = "0") int page,
             @RequestParam(required = false, defaultValue = "10") int size,
             Model model) {
         Pageable pageable = PageRequest.of(page, size);
+        model.addAttribute("travelMaster", new TravelingMaster());
         model.addAttribute("guestMasters", travelingMasterService.findAllTravelingMaster(pageable));
         model.addAttribute("currentPage", page);
         model.addAttribute("pageSize", size);

@@ -24,7 +24,6 @@ public class HomeController {
 
     private final ClientService clientService;
     private final ClientValidator clientValidator;
-
     private final EmailSenderService emailSenderService;
 
 

@@ -1,6 +1,7 @@
 package com.ua.SkinDreamsTottoo.SkinDreamsTottoo;
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util.ClientValidator;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util.ReviewValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -37,6 +38,11 @@ public class SkinDreamsTattooApplication {
 	@Bean
 	public ClientValidator clientValidator() {
 		return new ClientValidator();
+	}
+
+	@Bean
+	ReviewValidator reviewValidator(){
+		return new ReviewValidator();
 	}
 
 	@Bean

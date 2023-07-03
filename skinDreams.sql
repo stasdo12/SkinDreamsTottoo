@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS review
     author_name VARCHAR(255) not null,
     text TEXT not null,
     rating INTEGER not null,
+    registration_time TIMESTAMP,
     master_id BIGINT REFERENCES masters(id)
 );
 

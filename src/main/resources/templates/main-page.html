@@ -33,27 +33,37 @@
             </div>
             <div class="screen-body" id="success">
                 <div class="screen-body-item left">
-                    <div class="app-title"><span>ЗАПИСАТИСЯ</span><span>НА КОНСТУЛЬТАЦІЮ</span></div>
+                    <div class="app-title">
+                        <span>ЗАПИСАТИСЯ</span>
+                        <span>НА КОНСТУЛЬТАЦІЮ</span>
+                    </div>
                     <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
                         <!--/*@thymesVar id="client" type="com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client"*/-->
-                        <form th:method="POST" th:action="@{/new-client}" th:object="${client}" onsubmit="return validateForm()">
+                        <form th:method="POST" th:action="@{/new-client}" th:object="${client}"
+                              onsubmit="return validateForm()">
                             <div class="app-form-group">
                                 <label for="name"></label>
-                                <input class="app-form-control" type="text" th:field="*{name}" id="name" placeholder="NAME" required/>
-                                <p id="error" style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</p>
+                                <input class="app-form-control" type="text" th:field="*{name}" id="name"
+                                       placeholder="NAME" required/>
+                                <p id="error" style="color: red" th:if="${#fields.hasErrors('name')}"
+                                   th:errors="*{name}">Name error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="phone"></label>
-                                <input type="text" class="app-form-control" id="phone" name="phone" placeholder="CONTACT NO" required>
-                                <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name error</p>
+                                <input type="text" class="app-form-control" id="phone" name="phone"
+                                       placeholder="CONTACT NO" required>
+                                <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name
+                                    error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="email"></label>
-                                <input type="email" class="app-form-control" id="email" name="email" placeholder="EMAIL (НЕ ОБОВЯЗКОВО)">
-                                <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name error</p>
+                                <input type="email" class="app-form-control" id="email" name="email"
+                                       placeholder="EMAIL (НЕ ОБОВ'ЯЗКОВО)">
+                                <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name
+                                    error</p>
                             </div>
                             <div class="app-form-group buttons">
                                 <button class="app-form-button">SEND</button>

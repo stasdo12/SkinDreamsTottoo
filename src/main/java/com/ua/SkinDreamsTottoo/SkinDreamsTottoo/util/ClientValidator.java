@@ -8,7 +8,7 @@ import org.springframework.validation.Validator;
 
 public class ClientValidator implements Validator {
     @Override
-    public boolean supports(Class<?>  aClazz) {
+    public boolean supports(Class<?> aClazz) {
         return Client.class.equals(aClazz);
     }
 
@@ -30,6 +30,11 @@ public class ClientValidator implements Validator {
         if (!phone.matches("\\d{10}")) {
             errors.rejectValue("phone", "Pattern", "Phone should be a 10-digit number");
         }
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,
+                "question", "NotEmpty",
+                "Question should not be empty");
+
 
     }
 }
