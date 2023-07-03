@@ -1,9 +1,6 @@
-package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.validatior;
+package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util;
 
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.pl.NIP;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;

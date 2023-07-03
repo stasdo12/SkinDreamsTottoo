@@ -4,7 +4,8 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.Client;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.ClientService;
-import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.validatior.ClientValidator;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.EmailSenderService;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util.ClientValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,16 +21,20 @@ import java.time.LocalDateTime;
 @RequestMapping("/")
 
 public class HomeController {
+
     private final ClientService clientService;
     private final ClientValidator clientValidator;
+
+    private final EmailSenderService emailSenderService;
 
 
 
 
     @Autowired
-    public HomeController(ClientService clientService, ClientValidator clientValidator) {
+    public HomeController(ClientService clientService, ClientValidator clientValidator, EmailSenderService emailSenderService) {
         this.clientService = clientService;
         this.clientValidator = clientValidator;
+        this.emailSenderService = emailSenderService;
     }
 
     @GetMapping
@@ -48,9 +53,14 @@ public class HomeController {
         }
         client.setRegistrationTime(LocalDateTime.now());
         clientService.saveClient(client);
+        //Sending email from client
+        String toEmail = "stanislavdonetc@gmail.com";
+        emailSenderService.sendEmail(toEmail, "Client orders consultation", "Client names: " +
+                client.getName() +"\n" + "Client phone: " +
+                client.getPhone() +"\n" +"Client email: " +
+                client.getEmail());
         redirectAttributes.addFlashAttribute("successMessage", "ДЯКУЮ з Вами скоро зв'яжуться");
         return "redirect:/#success";
-        //TODO everywhere
 
     }
 
