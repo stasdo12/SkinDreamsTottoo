@@ -21,7 +21,7 @@ public class ClientValidator implements Validator {
         if (name.length() < 2 || name.length() > 30) {
             errors.rejectValue("name", "Size", "Name should be between 2 and 30 characters");
         }
-        if (!name.matches("[A-Za-zА-Яа-яЁё]+")) {
+        if (!name.matches("[A-Za-zА-яЁё]+")) {
             errors.rejectValue("name", "Pattern", "Name should not contain numbers");
         }
 
@@ -30,11 +30,6 @@ public class ClientValidator implements Validator {
         if (!phone.matches("\\d{10}")) {
             errors.rejectValue("phone", "Pattern", "Phone should be a 10-digit number");
         }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,
-                "question", "NotEmpty",
-                "Question should not be empty");
-
 
     }
 }

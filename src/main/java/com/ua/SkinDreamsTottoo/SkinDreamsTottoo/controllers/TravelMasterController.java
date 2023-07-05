@@ -4,12 +4,16 @@ package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.controllers;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.dto.TravelingMasterDTO;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity.TravelingMaster;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.exceptions.SDException;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.EmailSenderService;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.services.TravelingMasterService;
+import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util.TravelingMasterValidator;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,11 +23,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class TravelMasterController {
 
     private final TravelingMasterService travelingMasterService;
+    private final EmailSenderService emailSenderService;
+    private final TravelingMasterValidator travelingMasterValidator;
 
 
     @Autowired
-    public TravelMasterController(TravelingMasterService travelingMasterService) {
+    public TravelMasterController(TravelingMasterService travelingMasterService, EmailSenderService emailSenderService, TravelingMasterValidator travelingMasterValidator) {
         this.travelingMasterService = travelingMasterService;
+        this.emailSenderService = emailSenderService;
+        this.travelingMasterValidator = travelingMasterValidator;
     }
 
 
@@ -43,11 +51,27 @@ public class TravelMasterController {
 
 
     @PostMapping("/new-guest-master")
-    public String newGuest(@ModelAttribute TravelingMasterDTO travelingMasterDTO, RedirectAttributes redirectAttributes) {
+    public String newGuest(@Valid @ModelAttribute TravelingMasterDTO travelingMasterDTO, BindingResult bindingResult,
+                           RedirectAttributes redirectAttributes) {
+        //add handleReviewFormErrors
+        travelingMasterValidator.validate(travelingMasterDTO, bindingResult);
+        if (bindingResult.hasErrors()){
+            return "travel-master/index";
+        }
+        //Sending email from client
+        String toEmail = "stanislavdonetc@gmail.com";
+        emailSenderService.sendEmail(toEmail, "Travel Master", "Travel Master names: " +
+                travelingMasterDTO.getName() +"\n" + "Travel Master phone: " +
+                travelingMasterDTO.getPhone() +"\n" +"Travel Master email: " +
+                travelingMasterDTO.getEmail() + "\n" + "Travel Master social media: "  +
+                travelingMasterDTO.getSocialMedia() + "\n" + "Travel Master description: "+
+                travelingMasterDTO.getDescription());
         travelingMasterService.saveTravelingMaster(travelingMasterService.convertTravelingMasterDTOToTravelingMaster(travelingMasterDTO));
         redirectAttributes.addFlashAttribute("successMessage","ДЯКУЮ з Вами скоро зв'яжуться");
         return "redirect:/guest-master#success";
     }
+
+
     @ExceptionHandler(SDException.class)
     public String handleClientException(SDException ex, Model model){
         model.addAttribute("errorMassage", ex.getMessage());

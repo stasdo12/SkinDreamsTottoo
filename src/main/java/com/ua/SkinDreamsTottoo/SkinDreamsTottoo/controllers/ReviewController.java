@@ -76,6 +76,7 @@ public class ReviewController {
     private String handleReviewFormErrors(Model model) {
         Pageable pageable = PageRequest.of(0, 10);
         model.addAttribute("reviews", reviewService.findAllReview(pageable));
+        model.addAttribute("masters", masterService.findAllMasters());
         return "review/index";
     }
 
