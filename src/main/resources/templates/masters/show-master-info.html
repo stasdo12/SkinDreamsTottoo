@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Информация о мастере</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
@@ -14,9 +14,7 @@
     <p th:text="${master.socialMedia}"></p>
     <p th:text="${master.specialization}"></p>
 
-    <img th:src="@{/images/{id}/{photo}}"
-         alt="Фото мастера"
-         th:attr="id=${master.id}">
+
 </div>
 </body>
 </html>
