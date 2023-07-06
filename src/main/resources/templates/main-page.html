@@ -34,10 +34,10 @@
             <div class="screen-body" id="success">
                 <div class="screen-body-item left">
                     <div class="app-title">
-                        <span>ЗАПИСАТИСЯ</span>
-                        <span>НА КОНСТУЛЬТАЦІЮ</span>
+                        <span th:text="#{main.form.text}"></span>
+                        <span th:text="#{main.form.text.down}"></span>
                     </div>
-                    <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
+                    <div class="app-contact" th:text="#{main.form.contact.text}"></div>
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
@@ -47,26 +47,26 @@
                             <div class="app-form-group">
                                 <label for="name"></label>
                                 <input class="app-form-control" type="text" th:field="*{name}" id="name"
-                                       placeholder="NAME" required/>
+                                       th:placeholder="#{main.form.placeholder.name}" required/>
                                 <p id="error" style="color: red" th:if="${#fields.hasErrors('name')}"
                                    th:errors="*{name}">Name error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="phone"></label>
                                 <input type="text" class="app-form-control" id="phone" name="phone"
-                                       placeholder="CONTACT NO" required>
+                                       th:placeholder="#{main.form.placeholder.contactNo}" required>
                                 <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name
                                     error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="email"></label>
                                 <input type="email" class="app-form-control" id="email" name="email"
-                                       placeholder="EMAIL (НЕ ОБОВ'ЯЗКОВО)">
+                                       th:placeholder="#{main.form.placeholder.email}">
                                 <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name
                                     error</p>
                             </div>
                             <div class="app-form-group buttons">
-                                <button class="app-form-button">SEND</button>
+                                <button th:text="#{main.form.placeholder.send.button}" class="app-form-button"></button>
                             </div>
                         </form>
                         <div class="success-message">
@@ -92,8 +92,12 @@
     </div>
     <script src="/css/js/script.js"></script>
 </div>
-<h1 class="main-greeting">Ласкаво просимо в тату салон SkinDreams</h1>
+<h1 class="main-greeting" th:text="#{main.title}"></h1>
 
+<div class="language-switcher">
+    <a th:href="@{'?locale=en'}">EN</a>
+    <a th:href="@{'?locale=ukr'}">UKR</a>
+</div>
 <div class="main">
     <div class="main-text"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
         по-справжньому незабутніми. Наша команда талановитих тату-мастерів з готовністю перетворить ваші ідеї на живі

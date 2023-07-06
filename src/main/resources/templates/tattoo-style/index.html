@@ -12,7 +12,11 @@
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
-<h1 class="main-greeting">СТИЛІ ТАТУ</h1>
+<h1 class="main-greeting" th:text="#{style.title}">СТИЛІ ТАТУ</h1>
+<div class="language-switcher">
+    <a th:href="@{'?locale=en'}">EN</a>
+    <a th:href="@{'?locale=ukr'}">UKR</a>
+</div>
 <div class="main">
     <div class="main-text"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
         по-справжньому незабутніми. Наша команда талановитих тату-мастерів з готовністю перетворить ваші ідеї на живі
@@ -53,10 +57,10 @@
             <div class="screen-body" id="success">
                 <div class="screen-body-item left">
                     <div class="app-title">
-                        <span>ЗАДАЙТЕ </span>
-                        <span>НАМ ПИТАННЯ</span>
+                        <span th:text="#{style.form.text}"></span>
+                        <span th:text="#{style.form.text.down}"></span>
                     </div>
-                    <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
+                    <div class="app-contact" th:text="#{style.form.contact.text}"></div>
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
@@ -65,26 +69,27 @@
                             <div class="app-form-group">
                                 <label for="name"></label>
                                 <input class="app-form-control" type="text" id="name" th:field="*{name}"
-                                       placeholder="NAME" required>
+                                       th:placeholder="#{style.form.placeholder.name}" required>
                                 <p id="error" style="color: red" th:if="${#fields.hasErrors('name')}"
                                    th:errors="*{name}">Name error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="phone"></label>
                                 <input class="app-form-control" id="phone" th:field="*{phone}"
-                                       placeholder="CONTACT NO" required>
+                                       th:placeholder="#{style.form.placeholder.contactNo}" required>
                                 <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name
                                     error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="question"></label><input class="app-form-control" id="question"
-                                                                     th:field="*{question}" placeholder="QUESTION"
+                                                                     th:field="*{question}"
+                                                                     th:placeholder="#{style.form.placeholder.question}"
                                                                      required>
                                 <p style="color: red" th:if="${#fields.hasErrors('question')}" th:errors="*{question}">
                                     Name error</p>
                             </div>
                             <div class="app-form-group buttons">
-                                <button class="app-form-button">SEND</button>
+                                <button class="app-form-button" th:text="#{style.form.placeholder.send.button}"></button>
                             </div>
                         </form>
                         <div class="success-message">

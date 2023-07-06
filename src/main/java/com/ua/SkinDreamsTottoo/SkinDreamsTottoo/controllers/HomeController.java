@@ -63,10 +63,6 @@ public class HomeController {
 
     }
 
-    @GetMapping("/second")
-    public String testPage(){
-        return "test-page";
-    }
 
 
     @ExceptionHandler(SDException.class)

@@ -14,7 +14,7 @@
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">tattoo studio</h2>
 </div>
-<h1 class="main-greeting">Відгуки SkinDreams</h1>
+<h1 class="main-greeting" th:text="#{review.title}">Відгуки SkinDreams</h1>
 <div class="background">
     <div class="container">
         <div class="screen">
@@ -33,10 +33,10 @@
             <div class="screen-body" id="success">
                 <div class="screen-body-item left">
                     <div class="app-title">
-                        <span>ЗАЛИШИТИ </span>
-                        <span>ВІДГУК</span>
+                        <span th:text="#{review.form.text}"> </span>
+                        <span th:text="#{review.form.text.down}"></span>
                     </div>
-                    <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
+                    <div class="app-contact" th:text="#{review.form.contact.text}"></div>
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
@@ -45,18 +45,19 @@
                             <div class="app-form-group">
                                 <label for="authorName"></label>
                                 <input class="app-form-control" type="text" id="authorName" th:field="*{authorName}"
-                                       placeholder="NAME" required>
+                                       th:placeholder="#{review.form.placeholder.name}" required>
                                 <p id="error" style="color: red" th:if="${#fields.hasErrors('authorName')}"
                                    th:errors="*{authorName}">Name error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="text"></label>
-                                <input class="app-form-control" id="text" th:field="*{text}" placeholder="COMMENT" required>
+                                <input class="app-form-control" id="text" th:field="*{text}"
+                                       th:placeholder="#{review.form.placeholder.comment}" required>
                                 <p style="color: red" th:if="${#fields.hasErrors('text')}"
                                    th:errors="*{text}">Text error</p>
                             </div>
                             <div class="app-form-group">
-                                <label for="rating"></label>
+                                <label for="rating" th:text="#{review.form.placeholder.rating}"></label>
                                 <select class="form-control" id="rating" name="rating" required>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -66,8 +67,7 @@
                                 </select>
                             </div>
                             <div class="app-form-group">
-                                <label for="rating"></label>
-                                <label for="masterName"></label>
+                                <label for="masterName" th:text="#{review.form.placeholder.master}"></label>
                                 <select class="form-control" id="masterName" name="masterName" required>
                                     <!-- Use Thymeleaf to iterate over the list of masters -->
                                     <option th:each="master : ${masters}" th:value="${master.name}"
@@ -75,7 +75,7 @@
                                 </select>
                             </div>
                             <div class="app-form-group buttons">
-                                <button class="app-form-button">SEND</button>
+                                <button class="app-form-button" th:text="#{review.form.placeholder.send.button}"></button>
                             </div>
                         </form>
                         <div class="success-message">
@@ -107,14 +107,18 @@
 
 <script src="/css/js/script.js"></script>
 
+<div class="language-switcher">
+    <a th:href="@{'?locale=en'}">EN</a>
+    <a th:href="@{'?locale=ukr'}">UKR</a>
+</div>
 <div class="table-responsive">
     <table class="table">
         <thead>
         <tr>
-            <th>Автор</th>
-            <th>Текст отзыва</th>
-            <th>Рейтинг</th>
-            <th>Мастер</th>
+            <th th:text="#{review.table.autor}"></th>
+            <th th:text="#{review.table.text}"></th>
+            <th th:text="#{review.table.rating}"></th>
+            <th th:text="#{review.table.master}"></th>
         </tr>
         </thead>
         <tbody>
@@ -137,7 +141,7 @@
         </li>
     </ul>
 </div>
-</div>
+
 
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

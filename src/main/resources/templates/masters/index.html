@@ -12,16 +12,20 @@
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
-<h1 class="main-greeting">НАЩІ МАЙСТРИ</h1>
+<h1 class="main-greeting" th:text="#{master.title}"></h1>
+<div class="language-switcher">
+    <a th:href="@{'?locale=en'}">EN</a>
+    <a th:href="@{'?locale=ukr'}">UKR</a>
+</div>
 <section>
         <div class="col-md-9">
-            <h1>Список мастеров</h1>
+            <h1 th:text="#{master.title.table}"></h1>
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Специализация</th>
-                    <th scope="col">Социальные сети</th>
+                    <th scope="col" th:text="#{master.name.table}">Имя</th>
+                    <th scope="col" th:text="#{master.specialization.table}"></th>
+                    <th scope="col" th:text="#{master.social.media.table}"></th>
                 </tr>
                 </thead>
                 <tbody>

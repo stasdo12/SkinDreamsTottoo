@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
-<h1 class="main-greeting">НАЩІ Контакти</h1>
+<h1 class="main-greeting" th:text="#{contact.title}">НАЩІ Контакти</h1>
 
         <div class="background">
             <div class="container">
@@ -34,34 +34,19 @@
                     <div class="screen-body">
                         <div class="screen-body-item left">
                             <div class="app-title">
-                                <span>Наші </span>
-                                <span>Контакти</span>
+                                <span th:text="#{contact.form.text}"></span>
+                                <span th:text="#{contact.form.text.down}"></span>
                             </div>
-                            <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
+                            <div class="app-contact" th:text="#{contact.form.contact.text}"></div>
                         </div>
                         <div class="screen-body-item">
                             <div class="app-form">
-                                <p class="contact-info-label">Адресса</p>
-                                <p class="contact-info-text">Алчевских 6 м.Харків</p>
-                                <p class="contact-info-label">Email</p>
-                                <p class="contact-info-text">SKINDREAMS.TATTOO@GMAIL.COM</p>
-                                <p class="contact-info-label">Телефон:</p>
-                                <p class="contact-info-text">+38 (063) 443 66 67</p>
-<!--                                    <table class="table">-->
-<!--                                        <thead class="table">-->
-<!--                                        <tr>-->
-<!--                                            <th>Адреса</th>-->
-<!--                                            <th>Email</th>-->
-<!--                                            <th>Телефон</th>-->
-<!--                                        </tr>-->
-<!--                                        </thead>-->
-<!--                                        <tbody class="table">-->
-<!--                                        &lt;!&ndash; Используйте Thymeleaf для итерации по контактам и отображения их данных &ndash;&gt;-->
-<!--                                        <td>Алчевских 6 м.Харків</td>-->
-<!--                                        <td>SKINDREAMS.TATTOO@GMAIL.COM</td>-->
-<!--                                        <td>+38 (063) 443 66 67</td>-->
-<!--                                        </tbody>-->
-<!--                                    </table>-->
+                                <p class="contact-info-label" th:text="#{contact.form.text.address.label}"></p>
+                                <p class="contact-info-text" th:text="#{contact.form.text.address}"></p>
+                                <p class="contact-info-label" th:text="#{contact.form.text.email.label}"></p>
+                                <p class="contact-info-text" th:text="#{contact.form.text.email}"></p>
+                                <p class="contact-info-label" th:text="#{contact.form.text.phone.label}"></p>
+                                <p class="contact-info-text" th:text="#{contact.form.text.phone}"></p>
                             </div>
                         </div>
                     </div>
@@ -82,12 +67,15 @@
                 </div>
             </div>
         </div>
+<div class="language-switcher">
+    <a th:href="@{'?locale=en'}">EN</a>
+    <a th:href="@{'?locale=ukr'}">UKR</a>
+</div>
 
 
 
 <!-- Подключение Bootstrap JavaScript -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs /core@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
