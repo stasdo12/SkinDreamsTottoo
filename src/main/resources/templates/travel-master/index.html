@@ -12,11 +12,7 @@
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
-<h1 class="main-greeting" th:text="#{travel.title}">Гостьовий Майстер</h1>
-<div class="language-switcher">
-    <a th:href="@{'?locale=en'}">EN</a>
-    <a th:href="@{'?locale=ukr'}">UKR</a>
-</div>
+<h1 class="main-greeting" th:text="#{travel.title}"></h1>
 <div class="background">
     <div class="container">
         <div class="screen">
@@ -38,7 +34,7 @@
                         <span th:text="#{travel.form.text}"></span>
                         <span th:text="#{travel.form.text.down}"></span>
                     </div>
-                    <div class="app-contact" th:text="#{travel.form.contact.text}">Контакт Інфо: +38 063 443 66 67</div>
+                    <div class="app-contact" th:text="#{travel.form.contact.text}"></div>
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
@@ -149,7 +145,7 @@
     <br>
 </div>
 
-
+<div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

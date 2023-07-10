@@ -38,11 +38,6 @@
         </table>
     </div>
 </section>
-<div class="language-switcher">
-    <a th:href="@{'?locale=en'}">EN</a>
-    <a th:href="@{'?locale=ukr'}">UKR</a>
-</div>
-
-
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

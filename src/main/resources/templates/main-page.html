@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SkinDreamsTatooCo</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
@@ -93,11 +94,6 @@
     <script src="/css/js/script.js"></script>
 </div>
 <h1 class="main-greeting" th:text="#{main.title}"></h1>
-
-<div class="language-switcher">
-    <a th:href="@{'?locale=en'}">EN</a>
-    <a th:href="@{'?locale=ukr'}">UKR</a>
-</div>
 <div class="main">
     <div class="main-text"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
         по-справжньому незабутніми. Наша команда талановитих тату-мастерів з готовністю перетворить ваші ідеї на живі
@@ -120,5 +116,7 @@
         <p>Запишіться на консультацію зараз і зробіть перший крок до свого неповторного тату.</p>
     </div>
 </div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

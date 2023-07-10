@@ -13,10 +13,6 @@
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
 <h1 class="main-greeting" th:text="#{master.title}"></h1>
-<div class="language-switcher">
-    <a th:href="@{'?locale=en'}">EN</a>
-    <a th:href="@{'?locale=ukr'}">UKR</a>
-</div>
 <section>
         <div class="col-md-9">
             <h1 th:text="#{master.title.table}"></h1>
@@ -40,7 +36,7 @@
             </table>
         </div>
     </section>
-
+<div th:replace="~{fragments/footer :: footer}"></div>
 
 </body>
 </html>

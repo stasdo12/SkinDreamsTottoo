@@ -16,10 +16,6 @@
 
 
 <h1 class="main-greeting" th:text="#{service.title}"></h1>
-<div class="language-switcher">
-    <a th:href="@{'?locale=en'}">EN</a>
-    <a th:href="@{'?locale=ukr'}">UKR</a>
-</div>
 <div class="background">
     <div class="container">
         <div class="screen">
@@ -125,6 +121,6 @@
         <p>Запишіться на консультацію зараз і зробіть перший крок до свого неповторного тату.</p>
     </div>
 </div>
-
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

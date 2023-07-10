@@ -13,10 +13,6 @@
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
 <h1 class="main-greeting" th:text="#{style.title}">СТИЛІ ТАТУ</h1>
-<div class="language-switcher">
-    <a th:href="@{'?locale=en'}">EN</a>
-    <a th:href="@{'?locale=ukr'}">UKR</a>
-</div>
 <div class="main">
     <div class="main-text"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
         по-справжньому незабутніми. Наша команда талановитих тату-мастерів з готовністю перетворить ваші ідеї на живі
@@ -119,5 +115,6 @@
     </div>
     <script src="/css/js/script.js"></script>
 </div>
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

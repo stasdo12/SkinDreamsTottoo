@@ -1,10 +1,19 @@
-<div  th:fragment="sidenav" class="sidenav">
-  <a href="/">Головна</a>
-  <a href="/uslugi">Послуги</a>
-  <a href="/tattoo-masters">Майстри</a>
-  <a href="/stili-tattoo">Стилі Тату</a>
-  <a href="/nash-blog">Блог</a>
-  <a href="/otzyvy">Відгуки</a>
-  <a href="/kontakty">Контакти</a>
-  <a href="/guest-master">Travel Master</a>
+<div th:fragment="sidenav" class="sidenav">
+  <div class="language-switcher">
+    <a th:href="@{'?locale=en'}" class="language-icon">&#x1F1FA;&#x1F1F8;</a>
+    <a th:href="@{'?locale=ukr'}" class="language-icon">&#x1F1FA;&#x1F1E6;</a>
+  </div>
+  <div class="logo-container">
+    <a href="/" class="logo-link">
+      <img src="/css/static/images/logo.png" alt="Your Logo" class="logo-image">
+    </a>
+  </div>
+  <a href="/" th:text="#{menu.main}">Головна</a>
+  <a href="/uslugi" th:text="#{menu.service}">Послуги</a>
+  <a href="/tattoo-masters" th:text="#{menu.masters}">Майстри</a>
+  <a href="/stili-tattoo" th:text="#{menu.tattoo.style}">Стилі Тату</a>
+  <a href="/nash-blog" th:text="#{menu.blog}">Блог</a>
+  <a href="/otzyvy" th:text="#{menu.review}">Відгуки</a>
+  <a href="/kontakty" th:text="#{menu.contact}">Контакти</a>
+  <a href="/guest-master" th:text="#{menu.travel.master}">Travel Master</a>
 </div>

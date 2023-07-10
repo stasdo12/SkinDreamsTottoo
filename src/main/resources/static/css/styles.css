@@ -465,13 +465,61 @@ body, button, input {
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-image{
+    margin-right: 38px;
+    height: 150px;
+    width: 150px;
 }
 
 
+
+
+.sidenav .language-switcher {
+    margin-bottom: 10px;
+}
+
+
+.sidenav .language-switcher a {
+    margin-right: 29px;
+    display: inline-block;
+    padding: 0 1px; /* Adjust padding to make buttons smaller */
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+
+}
+
+.sidenav .language-switcher a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .language-switcher a.active {
+    background-color: #333;
+    color: #fff;
+}
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #818181;
     display: block;
 }
@@ -483,7 +531,7 @@ body, button, input {
 
 
 .main {
-    margin-left: 9px; /* Same as the width of the sidebar */
+    margin-left: 9px;
     padding: 0 10px;
 }
 
@@ -492,6 +540,35 @@ body, button, input {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+.language-switcher {
+    /*margin-left: 250px;*/
+    margin-bottom: 10px;
+}
+
+.language-switcher a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 15px;
+}
+
+.language-switcher a:hover {
+    background-color: black;
+    color: #f1f1f1;
+}
+
+.language-switcher a.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.language-icon {
+    font-size: 20px;
+}
+
 
 
 /*Main Text for all pages***********************************************************************************/
@@ -688,63 +765,166 @@ h1 {
 }
 
 
-/*SOCIAL MEDIA ICONS**********************************************************************************/
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%;
+/*FOOTER for all pages***********************************************************************************/
+.site-footer
+{
+    background-color:#26272b;
+    font-size:15px;
+    line-height:24px;
+    color:#737373;
 }
-.fa:hover {
-    opacity: 0.7;
+.site-footer hr
+{
+    border-top-color:#bbb;
+    opacity:0.5
 }
-.fa-facebook {
-    background: #3B5998;
-    color: white;
+.site-footer hr.small
+{
+    margin:20px 0
 }
-.fa-youtube {
-    background: #bb0000;
-    color: white;
+.site-footer h6
+{
+    color:#fff;
+    font-size:16px;
+    text-transform:uppercase;
+    margin-top:5px;
+    letter-spacing:2px
 }
-
-.fa-instagram {
-    background: #125688;
-    color: white;
+.site-footer a
+{
+    color:#737373;
 }
-
-.fa-pinterest {
-    background: #cb2027;
-    color: white;
+.site-footer a:hover
+{
+    color:#3366cc;
+    text-decoration:none;
 }
-.social-media-icons{}
-
-.success-message{
-    color: white;
+.footer-links
+{
+    padding-left:0;
+    list-style:none
 }
-
-.language-switcher {
-    margin-left: 250px;
-    margin-bottom: 10px;
+.footer-links li
+{
+    display:block
 }
-
-.language-switcher a {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #f2f2f2;
-    color: #333;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-right: 5px;
+.footer-links a
+{
+    color:#737373
 }
-
-.language-switcher a:hover {
-    background-color: #ddd;
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+    color:#3366cc;
+    text-decoration:none;
 }
-
-.language-switcher a.active {
-    background-color: #333;
-    color: #fff;
+.footer-links.inline li
+{
+    display:inline-block
+}
+.site-footer .social-icons
+{
+    text-align:right
+}
+.site-footer .social-icons a
+{
+    width:40px;
+    height:40px;
+    line-height:40px;
+    margin-left:6px;
+    margin-right:0;
+    border-radius:100%;
+    background-color:#33353d
+}
+.copyright-text
+{
+    margin:0
+}
+@media (max-width:991px)
+{
+    .site-footer [class^=col-]
+    {
+        margin-bottom:30px
+    }
+}
+@media (max-width:767px)
+{
+    .site-footer
+    {
+        padding-bottom:0
+    }
+    .site-footer .copyright-text,.site-footer .social-icons
+    {
+        text-align:center
+    }
+}
+.social-icons
+{
+    padding-left:0;
+    margin-bottom:0;
+    list-style:none
+}
+.social-icons li
+{
+    display:inline-block;
+    margin-bottom:4px
+}
+.social-icons li.title
+{
+    margin-right:15px;
+    text-transform:uppercase;
+    color:#96a2b2;
+    font-weight:700;
+    font-size:13px
+}
+.social-icons a{
+    background-color:#eceeef;
+    color:#818a91;
+    font-size:16px;
+    display:inline-block;
+    line-height:44px;
+    width:44px;
+    height:44px;
+    text-align:center;
+    margin-right:8px;
+    border-radius:100%;
+    -webkit-transition:all .2s linear;
+    -o-transition:all .2s linear;
+    transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+    color:#fff;
+    background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+    line-height:34px;
+    height:34px;
+    width:34px;
+    font-size:14px
+}
+.social-icons a.facebook:hover
+{
+    background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+    background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+    background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+    background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+    .social-icons li.title
+    {
+        display:block;
+        margin-right:0;
+        font-weight:600
+    }
 }

@@ -106,11 +106,6 @@
 </div>
 
 <script src="/css/js/script.js"></script>
-
-<div class="language-switcher">
-    <a th:href="@{'?locale=en'}">EN</a>
-    <a th:href="@{'?locale=ukr'}">UKR</a>
-</div>
 <div class="table-responsive">
     <table class="table">
         <thead>
@@ -143,7 +138,7 @@
 </div>
 
 
-
+<div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
