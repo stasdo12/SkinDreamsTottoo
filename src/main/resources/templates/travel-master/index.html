@@ -12,7 +12,11 @@
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">TATTOO STUDIO</h2>
 </div>
-<h1 class="main-greeting">Гостьовий Майстер</h1>
+<h1 class="main-greeting" th:text="#{travel.title}">Гостьовий Майстер</h1>
+<div class="language-switcher">
+    <a th:href="@{'?locale=en'}">EN</a>
+    <a th:href="@{'?locale=ukr'}">UKR</a>
+</div>
 <div class="background">
     <div class="container">
         <div class="screen">
@@ -31,10 +35,10 @@
             <div class="screen-body" id="success">
                 <div class="screen-body-item left">
                     <div class="app-title">
-                        <span>ХОЧЕТЕ  </span>
-                        <span>ДО НАС У ГОСТІ?</span>
+                        <span th:text="#{travel.form.text}"></span>
+                        <span th:text="#{travel.form.text.down}"></span>
                     </div>
-                    <div class="app-contact">Контакт Інфо: +38 063 443 66 67</div>
+                    <div class="app-contact" th:text="#{travel.form.contact.text}">Контакт Інфо: +38 063 443 66 67</div>
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
@@ -43,27 +47,29 @@
                             <div class="app-form-group">
                                 <label for="name"></label>
                                 <input class="app-form-control" type="text" id="name" th:field="*{name}"
-                                       placeholder="NAME" required>
+                                       th:placeholder="#{travel.form.placeholder.name}" required>
                                 <p id="error" style="color: red" th:if="${#fields.hasErrors('name')}"
                                    th:errors="*{name}">Name error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="socialMedia"></label>
                                 <input class="app-form-control" id="socialMedia" th:field="*{socialMedia}"
-                                       placeholder="SOCIAL MEDIA" required>
+                                       th:placeholder="#{travel.form.placeholder.social.media}" required>
                                 <p style="color: red" th:if="${#fields.hasErrors('socialMedia')}"
                                    th:errors="*{socialMedia}">Text error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="phone"></label>
-                                <input class="app-form-control" id="phone" th:field="*{phone}" placeholder="PHONE"
+                                <input class="app-form-control" id="phone" th:field="*{phone}"
+                                       th:placeholder="#{travel.form.placeholder.social.phone}"
                                        required>
                                 <p style="color: red" th:if="${#fields.hasErrors('phone')}"
                                    th:errors="*{phone}">Text error</p>
                             </div>
                             <div class="app-form-group">
                                 <label for="email"></label>
-                                <input class="app-form-control" id="email" th:field="*{email}" placeholder="EMAIL"
+                                <input class="app-form-control" id="email" th:field="*{email}"
+                                       th:placeholder="#{travel.form.placeholder.social.email}"
                                        required>
                                 <p style="color: red" th:if="${#fields.hasErrors('email')}"
                                    th:errors="*{email}">Text error</p>
@@ -71,12 +77,13 @@
                             <div class="app-form-group">
                                 <label for="description"></label>
                                 <input class="app-form-control" id="description" th:field="*{description}"
-                                       placeholder="DESCRIPTION" required>
+                                       th:placeholder="#{travel.form.placeholder.social.description}" required>
                                 <p style="color: red" th:if="${#fields.hasErrors('description')}"
                                    th:errors="*{description}">Text error</p>
                             </div>
                             <div class="app-form-group buttons">
-                                <button class="app-form-button">SEND</button>
+                                <button class="app-form-button"
+                                        th:text="#{travel.form.placeholder.social.send.button}"></button>
                             </div>
                         </form>
                         <div class="success-message">
@@ -108,13 +115,13 @@
 </div>
 
 <section>
-    <h2>Гостьові Майстри</h2>
+    <h1 th:text="#{travel.title.table}"></h1>
     <div class="table-responsive">
         <table class="table">
             <thead>
             <tr>
-                <th>Ім'я</th>
-                <th>Соціальні мережі</th>
+                <th th:text="#{travel.title.table.name}"></th>
+                <th th:text="#{travel.title.table.social.media}"></th>
             </tr>
             </thead>
             <tbody>
