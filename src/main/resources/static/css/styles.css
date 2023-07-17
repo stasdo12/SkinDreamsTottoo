@@ -611,17 +611,16 @@ body, button, input {
 }
 
 /*FixThis*/
-    section {
-        margin-left: 0;
-    }
 
 
 
-section {
-    margin-left: 220px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
+
+/*section {*/
+/*    margin-left: 31%;*/
+/*    padding: 20px;*/
+/*    margin-bottom: 20px;*/
+
+/*}*/
 
 .pagination {
     display: flex;
@@ -667,33 +666,6 @@ section {
 }
 
 
-
-
-
-
-/* CONTACT PAGE***********************************************************************************/
-
-.table {
-    font-family: 'Roboto Condensed', sans-serif;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 5px;
-    width: 100%;
-}
-
-.table th {
-    font-family: 'Roboto Condensed', sans-serif;
-    background-color: #888;
-    color: #ea1d6f;
-    padding: 10px;
-}
-
-.table td {
-    font-family: 'Roboto Condensed', sans-serif;
-    padding: 10px;
-}
-
-
-
 /*LOGO***********************************************************************************/
 :root {
     --flick-big-text-shadow:
@@ -733,7 +705,10 @@ section {
     0 0 1rem #ef7785,
     inset 0 0 1.3rem #ef7785;
 }
+.main-greeting-table{
+margin-left: 14%;
 
+}
 h1 {
     font-size: 3.5rem;
     margin: 0;
@@ -930,4 +905,7 @@ h1 {
         margin-right:0;
         font-weight:600
     }
+}
+.contact-map{
+    margin-left: 550px;
 }

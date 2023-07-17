@@ -17,13 +17,13 @@
 
 <section>
     <h2 class="neon-text" th:text="#{blog.title.table}" >Наш Блог</h2>
-    <div class="table-responsive">
-        <table class="table">
+    <div class="col-md-9 mx-auto">
+        <table class="table table-bordered table-dark table-rounded">
             <thead>
             <tr>
-                <th th:text="#{blog.table.subject}"></th>
-                <th th:text="#{blog.table.description}"></th>
-                <th th:text="#{blog.table.date}"></th>
+                <th scope="col"  th:text="#{blog.table.subject}"></th>
+                <th scope="col"  th:text="#{blog.table.description}"></th>
+                <th scope="col"  th:text="#{blog.table.date}"></th>
             </tr>
             </thead>
             <tbody>

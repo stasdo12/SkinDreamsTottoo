@@ -10,7 +10,6 @@
 </head>
 <body>
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
-
 <div class="container-logo">
     <h1 class="neon-text">SKIN DREAMS</h1>
     <h2 class="neon-text">tattoo studio</h2>
@@ -107,14 +106,15 @@
 </div>
 
 <script src="/css/js/script.js"></script>
-<div class="table-responsive">
-    <table class="table">
+<section>
+<div class="col-md-9 mx-auto">
+    <table class="table table-bordered table-dark">
         <thead>
         <tr>
-            <th th:text="#{review.table.autor}"></th>
-            <th th:text="#{review.table.text}"></th>
-            <th th:text="#{review.table.rating}"></th>
-            <th th:text="#{review.table.master}"></th>
+            <th scope="col" th:text="#{review.table.autor}"></th>
+            <th scope="col" th:text="#{review.table.text}"></th>
+            <th scope="col" th:text="#{review.table.rating}"></th>
+            <th scope="col" th:text="#{review.table.master}"></th>
         </tr>
         </thead>
         <tbody>
@@ -128,6 +128,7 @@
         </tbody>
     </table>
 </div>
+</section>
 <div class="pagination">
     <ul>
         <!-- Создание ссылок для перехода по страницам -->

@@ -15,28 +15,29 @@
 </div>
 <h1 class="main-greeting" th:text="#{master.title}"></h1>
 <section>
-        <div class="col-md-9">
-            <h1 th:text="#{master.title.table}"></h1>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col" th:text="#{master.name.table}">Имя</th>
-                    <th scope="col" th:text="#{master.specialization.table}"></th>
-                    <th scope="col" th:text="#{master.social.media.table}"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="master : ${masters}">
-                    <td><a th:href="@{/tattoo-masters/{id}(id=${master.id})}" th:text="${master.name}"></a></td>
-                    <td th:text="${master.specialization}"></td>
-                    <td>
-                        <a th:href="'http://www.instagram.com/' + ${master.socialMedia}" th:text="${master.socialMedia}" target="_blank"></a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+    <div class="col-md-9 mx-auto">
+        <table class="table table-bordered table-dark table-rounded">
+            <thead>
+            <tr>
+                <th scope="col" th:text="#{master.name.table}"></th>
+                <th scope="col" th:text="#{master.specialization.table}"></th>
+                <th scope="col" th:text="#{master.social.media.table}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="master : ${masters}">
+                <td><a th:href="@{/tattoo-masters/{id}(id=${master.id})}" th:text="${master.name}"></a></td>
+                <td th:text="${master.specialization}"></td>
+                <td>
+                    <a th:href="'https://www.instagram.com/' + ${master.socialMedia}" th:text="${master.socialMedia}" target="_blank"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
 <div th:replace="~{fragments/footer :: footer}"></div>
 
 </body>

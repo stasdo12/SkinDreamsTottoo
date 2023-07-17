@@ -110,15 +110,14 @@
     </div>
     <script src="/css/js/script.js"></script>
 </div>
-
+<h1 class="main-greeting-table" th:text="#{travel.title.table}"></h1>
 <section>
-    <h1 th:text="#{travel.title.table}"></h1>
-    <div class="table-responsive">
-        <table class="table">
+    <div class="col-md-9 mx-auto">
+        <table class="table table-bordered table-dark table-rounded">
             <thead>
             <tr>
-                <th th:text="#{travel.title.table.name}"></th>
-                <th th:text="#{travel.title.table.social.media}"></th>
+                <th scope="col" th:text="#{travel.title.table.name}"></th>
+                <th scope="col" th:text="#{travel.title.table.social.media}"></th>
             </tr>
             </thead>
             <tbody>
