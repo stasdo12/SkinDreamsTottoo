@@ -454,8 +454,51 @@ body, button, input {
     }
 }
 
+
+/*TESTSIDEBAR***********************************************************************************/
+aside{
+    float: left;
+    background:#181818;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: white;
+    border-right: 5px solid #4d4d4d;
+
+}
+aside img {
+    width: 80px;
+    float: left;
+}
+aside .logo{
+    font-size:40px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+}
+aside h3{
+    margin-top: 50px;
+    font-size: 28px;
+}
+aside ul{list-style: none}
+aside ul li{
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    transition: all .6s ease;
+}
+aside ul li:hover, aside ul a:hover{
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+
 /*SIDEBAR***********************************************************************************/
+
 .sidenav {
+    border-right: 5px solid #4d4d4d;
     height: 100%;
     width: 200px;
     position: fixed;
@@ -526,7 +569,9 @@ body, button, input {
 
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #ea1d6f;
+    text-decoration: none;
+    transform: scale(1.05);
 }
 
 
@@ -719,6 +764,9 @@ h2 {
     font-size: 2rem;
     margin: 0;
     padding: 0;
+}
+.master{
+    color: white;
 }
 
 .neon-text {

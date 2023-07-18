@@ -10,7 +10,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,6 +28,7 @@ public class HomeController {
 
 
 
+
     @Autowired
     public HomeController(ClientService clientService, ClientValidator clientValidator, EmailSenderService emailSenderService) {
         this.clientService = clientService;
@@ -42,6 +42,11 @@ public class HomeController {
         return "main-page";
     }
 
+    @GetMapping("/test")
+    public String testPage(){
+        return "fragments/new-sidenav.html";
+    }
+
     @PostMapping("/new-client")
     public String orderTattoo(@Valid @ModelAttribute("client")  Client client, BindingResult bindingResult,
                               RedirectAttributes redirectAttributes){
@@ -52,6 +57,11 @@ public class HomeController {
         }
         client.setRegistrationTime(LocalDateTime.now());
         clientService.saveClient(client);
+        //Sending telegram from client
+        String message = "Новый заказ: \n" +
+                "Имя клиента: " + client.getName() + "\n" +
+                "Телефон: " + client.getPhone() + "\n" +
+                "Email: " + client.getEmail();
         //Sending email from client
         String toEmail = "stanislavdonetc@gmail.com";
         emailSenderService.sendEmail(toEmail, "Client orders consultation", "Client names: " +

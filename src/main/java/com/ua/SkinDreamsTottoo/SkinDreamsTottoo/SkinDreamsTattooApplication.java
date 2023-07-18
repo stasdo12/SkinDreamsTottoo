@@ -1,5 +1,6 @@
 package com.ua.SkinDreamsTottoo.SkinDreamsTottoo;
 
+
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util.ClientValidator;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util.ReviewValidator;
 import com.ua.SkinDreamsTottoo.SkinDreamsTottoo.util.TravelingMasterValidator;
@@ -50,6 +51,7 @@ public class SkinDreamsTattooApplication {
 	TravelingMasterValidator travelingMasterValidator(){
 		return new TravelingMasterValidator();
 	}
+
 
 	@Bean
 	public JavaMailSender javaMailSender() {
