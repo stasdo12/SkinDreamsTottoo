@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
     <!-- Подключение Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
-<div class="container-logo">
-    <h1 class="neon-text">SKIN DREAMS</h1>
-    <h2 class="neon-text">TATTOO STUDIO</h2>
+<body class="body-contact">
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-lg-12 col-md-12 col-sm-6 col-12 offset-lg-3 text-center col-2">
+            <div class="container-logo">
+                <h1 class="neon-text">SKIN DREAMS</h1>
+                <h2 class="neon-text">TATTOO STUDIO</h2>
+            </div>
+        </div>
+    </div>
 </div>
-<h1 class="main-greeting" th:text="#{contact.title}">НАЩІ Контакти</h1>
-
+<h1 class="main-greeting col-lg-12 col-md-12 col-sm-12 col-12 offset-lg-1 text-center col-12" th:text="#{contact.title}"></h1>
         <div class="background">
             <div class="container">
                 <div class="screen">
@@ -69,11 +76,11 @@
             </div>
         </div>
 
-<iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.547384176683!2d36.2371108761069!3d50.00109471961713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0e7c08d9785%3A0x48e48fd5710cd8da!2z0YPQuy4g0JDQu9GH0LXQstGB0LrQuNGFLCA2LCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNjEwMDA!5e0!3m2!1sru!2sua!4v1689599100730!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe class="contact-map col-lg-8 col-md-8  col-sm-12 col-12 offset-lg-3 offset-md-3 text-center col-2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.547384176683!2d36.2371108761069!3d50.00109471961713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0e7c08d9785%3A0x48e48fd5710cd8da!2z0YPQuy4g0JDQu9GH0LXQstGB0LrQuNGFLCA2LCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNjEwMDA!5e0!3m2!1sru!2sua!4v1689599100730!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
 <!-- Подключение Bootstrap JavaScript -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
 </body>
 </html>

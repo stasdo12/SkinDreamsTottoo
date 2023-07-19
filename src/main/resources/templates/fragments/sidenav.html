@@ -1,40 +1,47 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<div th:fragment="sidenav" class="sidenav">
-  <div class="language-switcher">
-    <a th:href="@{'?locale=en'}" class="language-icon">&#x1F1FA;&#x1F1F8;</a>
-    <a th:href="@{'?locale=ukr'}" class="language-icon">&#x1F1FA;&#x1F1E6;</a>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-12">
+      <div th:fragment="sidenav" class="sidenav">
+        <div class="language-switcher">
+          <a th:href="@{'?locale=en'}" class="language-icon">&#x1F1FA;&#x1F1F8;</a>
+          <a th:href="@{'?locale=ukr'}" class="language-icon">&#x1F1FA;&#x1F1E6;</a>
+        </div>
+        <div class="logo-container">
+          <a href="/" class="logo-link">
+            <img src="/css/static/images/logo.png" alt="Your Logo" class="logo-image">
+          </a>
+        </div>
+        <nav>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="/" th:text="#{menu.main}" class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a href="/nash-blog" th:text="#{menu.blog}" class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a href="/uslugi" th:text="#{menu.service}" class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a href="/tattoo-masters" th:text="#{menu.masters}" class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a href="/otzyvy" th:text="#{menu.review}" class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a href="/kontakty" th:text="#{menu.contact}" class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a href="/stili-tattoo" th:text="#{menu.tattoo.style}" class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a href="/guest-master" th:text="#{menu.travel.master}" class="nav-link"></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
-  <div class="logo-container">
-    <a href="/" class="logo-link">
-      <img src="/css/static/images/logo.png" alt="Your Logo" class="logo-image">
-    </a>
-  </div>
-  <nav>
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a href="/" th:text="#{menu.main}" class="nav-link"></a>
-      </li>
-      <li class="nav-item">
-        <a href="/nash-blog" th:text="#{menu.blog}" class="nav-link"></a>
-      </li>
-      <li class="nav-item">
-        <a href="/uslugi" th:text="#{menu.service}" class="nav-link"></a>
-      </li>
-      <li class="nav-item">
-        <a href="/tattoo-masters" th:text="#{menu.masters}" class="nav-link"></a>
-      </li>
-      <li class="nav-item">
-        <a href="/otzyvy" th:text="#{menu.review}" class="nav-link"></a>
-      </li>
-      <li class="nav-item">
-        <a href="/kontakty" th:text="#{menu.contact}" class="nav-link"></a>
-      </li>
-      <li class="nav-item">
-        <a href="/stili-tattoo" th:text="#{menu.tattoo.style}" class="nav-link"></a>
-      </li>
-      <li class="nav-item">
-        <a href="/guest-master" th:text="#{menu.travel.master}" class="nav-link"></a>
-      </li>
-    </ul>
-  </nav>
 </div>
