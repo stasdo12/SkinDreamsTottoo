@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <title>Review</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
-<body>
+<body class="body-contact">
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
-<div class="container-logo">
-    <h1 class="neon-text">SKIN DREAMS</h1>
-    <h2 class="neon-text">tattoo studio</h2>
+<div th:replace="~{fragments/main-logo :: logo}"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="main-greeting col-lg-10 offset-lg-2 col-md-6 offset-md-3 col-sm-8 col-12 text-center" th:text="#{review.title}"></h1>
+    </div>
 </div>
-<h1 class="main-greeting" th:text="#{review.title}">Відгуки SkinDreams</h1>
 <div class="background">
     <div class="container">
         <div class="screen">
@@ -107,7 +109,10 @@
 
 <script src="/css/js/script.js"></script>
 <section>
+    <div class="container">
 <div class="col-md-9 mx-auto">
+    <div class="table-responsive col-lg-11 offset-lg-2 col-md-12 offset-md-2">
+
     <table class="table table-bordered table-dark">
         <thead>
         <tr>
@@ -128,8 +133,13 @@
         </tbody>
     </table>
 </div>
+    </div>
+    </div>
 </section>
-<div class="pagination">
+
+<div class="container">
+    <div class="row justify-content-center offset-lg-2" >
+<div class="pagination  pagination-lg pagination-sm">
     <ul>
         <!-- Создание ссылок для перехода по страницам -->
         <li th:each="pageNumber : ${#numbers.sequence(0, reviews.totalPages)}">
@@ -137,6 +147,8 @@
                th:classappend="${pageNumber == currentPage} ? 'active'">[[${pageNumber}]]</a>
         </li>
     </ul>
+</div>
+</div>
 </div>
 
 

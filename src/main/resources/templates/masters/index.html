@@ -4,19 +4,32 @@
     <meta charset="UTF-8">
     <title>Кращі тату майстри України</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact-page.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
+<body class="body-contact">
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
-<div class="container-logo">
-    <h1 class="neon-text">SKIN DREAMS</h1>
-    <h2 class="neon-text">TATTOO STUDIO</h2>
+<div th:replace="~{fragments/main-logo :: logo}"></div>
+<div class="sticky-container">
+    <div class="d-flex flex-row-reverse align-items-center">
+        <a href="tg://resolve?domain=my_username" class="btn btn-primary telegram-button">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </div>
 </div>
-<h1 class="main-greeting" th:text="#{master.title}"></h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="main-greeting col-lg-10 offset-lg-2 col-md-6 offset-md-3 col-sm-8 col-12 text-center" th:text="#{master.title}"></h1>
+    </div>
+</div>
+
 <section>
+    <div class="container">
     <div class="col-md-9 mx-auto">
-        <table class="table table-bordered table-dark table-rounded">
+        <div class="table-responsive col-lg-11 offset-lg-2 col-md-12 offset-md-2">
+        <table class="table table-bordered table-dark ">
             <thead>
             <tr>
                 <th scope="col" th:text="#{master.name.table}"></th>
@@ -34,6 +47,8 @@
             </tr>
             </tbody>
         </table>
+    </div>
+    </div>
     </div>
 </section>
 

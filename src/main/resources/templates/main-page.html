@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SkinDreamsTatooCo</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact-page.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -11,14 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body>
+<body class="body-contact">
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
-
-<div class="container-logo">
-    <h1 class="neon-text">SKIN DREAMS</h1>
-    <h2 class="neon-text">TATTOO STUDIO</h2>
+<div th:replace="~{fragments/main-logo :: logo}"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="main-greeting col-lg-10 offset-lg-2 col-md-6 offset-md-3 col-sm-8 col-12 text-center" th:text="#{main.title}"></h1>
+    </div>
 </div>
-
+<div class="sticky-container">
+    <div class="d-flex flex-row-reverse align-items-center">
+        <a href="tg://resolve?domain=my_username" class="btn btn-primary telegram-button">
+            <i class="fa-brands fa-telegram"></i>
+        </a>
+    </div>
+</div>
 
 <div class="background">
     <div class="container">
@@ -96,9 +104,12 @@
     </div>
     <script src="/css/js/script.js"></script>
 </div>
-<h1 class="main-greeting" th:text="#{main.title}"></h1>
+
+<div class="container">
 <div class="main">
-    <div class="main-text"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
+    <div class="row justify-content-center">
+        <div class="col-lg-12 offset-lg-3 col-md-10 offset-md-2 col-sm-12 col-12">
+    <div class="main-text text-center"><p>У нас ви знайдете безмежну креативність та професійність, які зроблять ваші татуювання
         по-справжньому незабутніми. Наша команда талановитих тату-мастерів з готовністю перетворить ваші ідеї на живі
         шедеври на вашій шкірі.</p>
         <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
@@ -118,6 +129,9 @@
         <div class="main-page-image"><img src="/css/static/images/main-img-2.png" alt="firstPhoto"></div>
         <p>Запишіться на консультацію зараз і зробіть перший крок до свого неповторного тату.</p>
     </div>
+</div>
+</div>
+</div>
 </div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>

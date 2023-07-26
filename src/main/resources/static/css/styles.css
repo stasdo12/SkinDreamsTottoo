@@ -1,119 +1,13 @@
 /*Main sentence, all the page***********************************************************************************/
 .main-greeting {
-    /*font-weight: 800;*/
-    /*margin-top: 4.5em;*/
     color: white;
     font-family: Monaco, monospace;
     font-size: 2em;
     text-align: center;
-    /*background-color: black;*/
     opacity: 0.9;
-    padding: 10px;
+    padding-bottom: 25px;
     border-radius: 10px;
-    /*margin-left: 24%;*/
-    /*width: 60%;*/
 }
-
-
-/*@media screen and (min-width: 320px) and (max-width: 767px) {*/
-
-/*    .main-greeting {*/
-/*        margin-top: 80px;*/
-/*        margin-left: 40px;*/
-/*        margin-right: 50px;*/
-/*        width: auto;*/
-/*        font-size: 24px;*/
-/*    }*/
-/*}*/
-
-
-/*@media (min-width: 768px) and (max-width: 992px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 600px;*/
-/*        margin-left: 270px;*/
-/*        margin-right: 100px;*/
-/*        width: auto;*/
-/*        font-size: 28px;*/
-/*    }*/
-/*}*/
-
-/*@media (min-width: 992px) and (max-width: 1199px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 105px;*/
-/*        margin-left: 344px;*/
-/*        margin-right: 200px;*/
-/*        width: auto;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 1200px) and (max-width: 1499px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 105px;*/
-/*        margin-left: 390px;*/
-/*        margin-right: 200px;*/
-/*        width: auto;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 1400px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 105px;*/
-/*        margin-left: 407px;*/
-/*        margin-right: auto;*/
-/*        width: 900px;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-
-
-/*@media (min-width: 1500px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 105px;*/
-/*        margin-left: 407px;*/
-/*        margin-right: auto;*/
-/*        width: 900px;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 1600px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 0;*/
-/*        margin-left: 441px;*/
-/*        margin-right: auto;*/
-/*        width: 900px;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 1700px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 105px;*/
-/*        margin-left: 467px;*/
-/*        margin-right: auto;*/
-/*        width: 900px;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-
-/*@media (min-width: 1800px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 105px;*/
-/*        margin-left: 538px;*/
-/*        margin-right: auto;*/
-/*        width: 900px;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 1900px) {*/
-/*    .main-greeting {*/
-/*        margin-top: 105px;*/
-/*        margin-left: 538px;*/
-/*        margin-right: auto;*/
-/*        width: 900px;*/
-/*        font-size: 32px;*/
-/*    }*/
-/*}*/
-
-
 
 /*Body Images***********************************************************************************/
 body {
@@ -635,7 +529,6 @@ aside ul li:hover, aside ul a:hover{
     text-align: center;
     color: #ffffff;
     max-width: 100%;
-    margin-left: 187px;
     padding: 10px;
     box-sizing: border-box;
 
@@ -659,7 +552,7 @@ aside ul li:hover, aside ul a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px; /* Встановіть бажану висоту контейнера */
+    height: 300px;
 }
 
 .main-page-image img {
@@ -667,17 +560,7 @@ aside ul li:hover, aside ul a:hover{
     max-height: 100%;
 }
 
-/*FixThis*/
-
-
-
-
-/*section {*/
-/*    margin-left: 31%;*/
-/*    padding: 20px;*/
-/*    margin-bottom: 20px;*/
-
-/*}*/
+/*Pagination*/
 
 .pagination {
     display: flex;
@@ -700,13 +583,14 @@ aside ul li:hover, aside ul a:hover{
     display: block;
     padding: 5px 10px;
     text-decoration: none;
-    background-color: #f2f2f2;
+    background-color: #737373;
     border: 1px solid #ccc;
-    color: #333;
+    color: #f2f2f2;
 }
 
 .pagination li a:hover {
     background-color: #e6e6e6;
+    color: #4d4d4f;
 }
 
 .pagination li.active a {
@@ -748,11 +632,6 @@ aside ul li:hover, aside ul a:hover{
 
 
 .container-logo {
-
-    /*width: 900px;*/
-    /*padding: 1.5rem;*/
-    /*display: block;*/
-    /*transform: translate(-45%, -45%);*/
     text-align: center;
     border: solid 2px #fff;
     border-radius: 0.8rem;

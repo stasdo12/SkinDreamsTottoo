@@ -5,3 +5,11 @@
 .map-main{
 border-radius: 20px;
 }
+
+
+
+.sticky-container {
+    position: sticky;
+    top: 50px;
+    z-index: 100;
+}

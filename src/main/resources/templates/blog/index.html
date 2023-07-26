@@ -4,39 +4,47 @@
     <meta charset="UTF-8">
     <title>Наш Блог</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
+<body class="body-contact">
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
-<div class="container-logo">
-    <h1 class="neon-text">SKIN DREAMS</h1>
-    <h2 class="neon-text">TATTOO STUDIO</h2>
+<div th:replace="~{fragments/main-logo :: logo}"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="main-greeting col-lg-10 offset-lg-2 col-md-6 offset-md-3 col-sm-8 col-12 text-center" th:text="#{blog.title}"></h1>
+    </div>
 </div>
-<h1 class="main-greeting" th:text="#{blog.title}"></h1>
+<div class="sticky-container">
+    <div class="d-flex flex-row-reverse align-items-center">
+        <a href="tg://resolve?domain=my_username" class="btn btn-primary telegram-button">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </div>
+</div>
 
 <section>
-    <h2 class="neon-text" th:text="#{blog.title.table}" >Наш Блог</h2>
-    <div class="col-md-9 mx-auto">
-        <table class="table table-bordered table-dark table-rounded">
-            <thead>
-            <tr>
-                <th scope="col"  th:text="#{blog.table.subject}"></th>
-                <th scope="col"  th:text="#{blog.table.description}"></th>
-                <th scope="col"  th:text="#{blog.table.date}"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- Используем Thymeleaf для итерации по списку гостевых мастеров -->
-            <th:block th:each="blog : ${blogs}">
+    <div class="container">
+        <div class="table-responsive col-lg-10 offset-lg-2">
+            <table class="table table-dark table-bordered">
+                <thead>
                 <tr>
+                    <th scope="col" th:text="#{blog.table.subject}"></th>
+                    <th scope="col" th:text="#{blog.table.description}"></th>
+                    <th scope="col" th:text="#{blog.table.date}"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Используем Thymeleaf для итерации по списку гостевых мастеров -->
+                <tr th:each="blog : ${blogs}">
                     <td th:text="${blog.title}"></td>
                     <td th:text="${blog.text}"></td>
                     <td th:text="${blog.registrationTime}"></td>
                 </tr>
-            </th:block>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 <div th:replace="~{fragments/footer :: footer}"></div>
