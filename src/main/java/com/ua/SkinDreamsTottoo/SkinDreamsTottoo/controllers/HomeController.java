@@ -44,7 +44,7 @@ public class HomeController {
 
     @GetMapping("/test")
     public String testPage(){
-        return "fragments/new-sidenav.html";
+        return "fragments/phone-number.html";
     }
 
     @PostMapping("/new-client")

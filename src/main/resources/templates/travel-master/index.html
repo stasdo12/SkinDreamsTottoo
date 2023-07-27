@@ -5,13 +5,22 @@
     <title>Гостьові Майстри</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/css/contact-page.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="/css/static/images/logo.png">
 </head>
 <body class="body-contact">
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
 <div th:replace="~{fragments/main-logo :: logo}"></div>
+<div class="sticky-container">
+    <div class="d-flex flex-row-reverse align-items-center">
+        <a href="tg://resolve?domain=my_username" class="btn btn-primary telegram-button">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <h1 class="main-greeting col-lg-10 offset-lg-2 col-md-6 offset-md-3 col-sm-8 col-12 text-center" th:text="#{travel.title}"></h1>
