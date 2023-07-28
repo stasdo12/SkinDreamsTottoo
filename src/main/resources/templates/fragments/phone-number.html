@@ -1,54 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/css/contact-page.css">
+<link rel="icon" type="image/png" href="/css/static/images/logo.png">
+<div class="phone-number" th:fragment="phone">
+    <div class="container">
+        <div class="align-content-center">
+            <div class="col-lg-8 offset-lg-12">
+                <div class="dropdown">
+                    <!-- Кнопка, которая открывает выпадающий список -->
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="phoneDropdown"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        +380639539901
+                    </button>
+                    <!-- Список телефонов -->
+                    <div class="dropdown-menu" aria-labelledby="phoneDropdown">
+                        <a class="dropdown-item" href="#" onclick="callNumber('+123456789')">+38063953990</a>
+                        <a class="dropdown-item" href="#" onclick="callNumber('+987654321')">+38063953990</a>
+                        <a class="dropdown-item" href="#" onclick="callNumber('+555555555')">+38063953990</a>
+                        <!-- Добавьте здесь другие телефоны по аналогии -->
+                    </div>
+                </div>
+            </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Page</title>
-  <!-- Подключение Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
-  <link rel="stylesheet" type="text/css" href="/css/contact-page.css">
-  <link rel="icon" type="image/png" href="/css/static/images/logo.png">
-</head>
+            <!-- Подключение jQuery, Popper.js и Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<body>
-<div class="container mt-3">
-  <div class="dropdown">
-    <!-- Кнопка, которая открывает выпадающий список -->
-    <button class="btn btn-primary dropdown-toggle" type="button" id="phoneDropdown" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-      Выберите телефон
-    </button>
-    <!-- Список телефонов -->
-    <div class="dropdown-menu" aria-labelledby="phoneDropdown">
-      <a class="dropdown-item" href="#" onclick="callNumber('+123456789')">+1 234 567 89</a>
-      <a class="dropdown-item" href="#" onclick="callNumber('+987654321')">+9 876 543 21</a>
-      <a class="dropdown-item" href="#" onclick="callNumber('+555555555')">+5 555 555 55</a>
-      <!-- Добавьте здесь другие телефоны по аналогии -->
+            <script>
+                // Функция для выполнения звонка по выбранному телефонному номеру
+                function callNumber(number) {
+                    window.location.href = 'tel:' + number;
+                }
+
+                // Обновленная функция для показа/скрытия выпадающего списка
+                $(document).ready(function () {
+                    $('#phoneDropdown').click(function () {
+                        $('.dropdown-menu').toggle();
+                    });
+                });
+            </script>
+        </div>
     </div>
-  </div>
 </div>
-
-<!-- Подключение jQuery, Popper.js и Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-  // Функция для выполнения звонка по выбранному телефонному номеру
-  function callNumber(number) {
-    window.location.href = 'tel:' + number;
-  }
-
-  // Обновленная функция для показа/скрытия выпадающего списка
-  $(document).ready(function() {
-    $('#phoneDropdown').click(function() {
-      $('.dropdown-menu').toggle();
-    });
-  });
-</script>
-</body>
-
-</html>
