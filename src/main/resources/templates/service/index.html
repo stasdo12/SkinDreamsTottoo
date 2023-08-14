@@ -8,25 +8,30 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="/css/static/images/logo.png">
 </head>
 <div th:replace="~{fragments/phone-number :: phone}"></div>
 <body class="body-contact">
-<div th:replace="~{fragments/sidenav :: sidenav}"></div>
-<div th:replace="~{fragments/main-logo :: logo}"></div>
-<div class="sticky-container">
-    <div class="d-flex flex-row-reverse align-items-center">
-        <a href="tg://resolve?domain=my_username" class="btn btn-primary telegram-button">
-            <i class="fab fa-telegram"></i>
+<div th:replace="~{fragments/telegram-button :: telegram}"></div>
+<div th:fragment="instagram" class="sticky-container-inst">
+    <div class="d-flex align-items-center">
+        <a href="https://www.instagram.com/my_username" class="btn btn-primary instagram-button ml-auto">
+            <i class="fab fa-instagram"></i>
         </a>
     </div>
 </div>
-<div class="container">
-    <div class="row justify-content-center">
-        <h1 class="main-greeting col-lg-10 offset-lg-2 col-md-6 offset-md-3 col-sm-8 col-12 text-center" th:text="#{service.title}"></h1>
+<div th:fragment="tiktok" class="sticky-container-tik-tok">
+    <div class="d-flex align-items-center">
+        <a href="https://www.tiktok.com/@my_username" class="btn btn-primary tiktok-button ml-auto">
+            <i class="fab fa-tiktok"></i>
+        </a>
     </div>
 </div>
+<div th:replace="~{fragments/sidenav :: sidenav}"></div>
+<div th:replace="~{fragments/main-logo :: logo}"></div>
 
 <div class="background">
     <div class="container">

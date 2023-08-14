@@ -10,6 +10,18 @@ border-radius: 20px;
 
 .sticky-container {
     position: sticky;
-    top: 50px;
+    top: 150px;
+    z-index: 100;
+}
+
+.sticky-container-inst{
+    position: sticky;
+    top: 200px;
+    z-index: 100;
+}
+
+.sticky-container-tik-tok{
+    position: sticky;
+    top: 250px;
     z-index: 100;
 }
