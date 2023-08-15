@@ -16,20 +16,7 @@
 <div th:replace="~{fragments/phone-number :: phone}"></div>
 <body class="body-contact">
 <div th:replace="~{fragments/telegram-button :: telegram}"></div>
-<div th:fragment="instagram" class="sticky-container-inst">
-    <div class="d-flex align-items-center">
-        <a href="https://www.instagram.com/my_username" class="btn btn-primary instagram-button ml-auto">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
-</div>
-<div th:fragment="tiktok" class="sticky-container-tik-tok">
-    <div class="d-flex align-items-center">
-        <a href="https://www.tiktok.com/@my_username" class="btn btn-primary tiktok-button ml-auto">
-            <i class="fab fa-tiktok"></i>
-        </a>
-    </div>
-</div>
+<div th:replace="~{fragments/instagram-button :: instagram}"></div>
 <div th:replace="~{fragments/sidenav :: sidenav}"></div>
 <div th:replace="~{fragments/main-logo :: logo}"></div>
 

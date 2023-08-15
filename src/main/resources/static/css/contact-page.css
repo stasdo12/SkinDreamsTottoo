@@ -1,5 +1,23 @@
-.body-contact{
+.body-contact {
+    position: relative;
     background-color: #1C1C1C;
+}
+
+.body-contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(pink 13%, transparent 2.5%);
+    background-size: 15px 15px;
+    pointer-events: none;
+    opacity: 0.2;
+    z-index: -1;
+}
+.body-contact * {
+    pointer-events: auto;
 }
 
 .map-main{
@@ -24,4 +42,16 @@ border-radius: 20px;
     position: sticky;
     top: 250px;
     z-index: 100;
+}
+
+.btn:not(:disabled):not(.disabled){
+    background: #666;
+    border-color: #ea1d6f;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.btn:not(:disabled):not(.disabled):hover {
+    background: #ea1d6f;
+    border-color: white;
+
 }
