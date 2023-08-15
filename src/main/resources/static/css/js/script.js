@@ -1,3 +1,12 @@
+
+$(document).ready(function() {
+    $('.carousel').carousel({
+        interval: 200 // интервал в миллисекундах
+    });
+});
+
+
+
 function validateForm() {
     var authorName = document.getElementById("authorName").value;
     var comment = document.getElementById("text").value;
