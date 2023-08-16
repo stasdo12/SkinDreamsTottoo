@@ -34,6 +34,7 @@ public class MasterController {
         Master master = masterService.findMasterById(id);
         MasterDTO masterDTO = masterService.convertMasterToMasterDTO(master);
         model.addAttribute("master", masterDTO);
+        model.addAttribute("imageURL", masterDTO.getImageURL());
         return "/masters/show-master-info";
     }
 

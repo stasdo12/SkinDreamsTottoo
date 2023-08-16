@@ -1,6 +1,5 @@
 package com.ua.SkinDreamsTottoo.SkinDreamsTottoo.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +22,6 @@ public class Master {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
     @Column(name = "name")
     private String name;
 
@@ -33,9 +31,9 @@ public class Master {
     @Column(name = "social_media")
     private String socialMedia;
 
-
+    @Column(name = "image_url") // Добавленное поле для URL изображения
+    private String imageURL;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "master")
     List<Review> reviewList = new ArrayList<>();
-
 }

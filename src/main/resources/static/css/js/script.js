@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
     $('.carousel').carousel({
-        interval: 200 // интервал в миллисекундах
+        interval: 3000 // интервал в миллисекундах
     });
 });
 

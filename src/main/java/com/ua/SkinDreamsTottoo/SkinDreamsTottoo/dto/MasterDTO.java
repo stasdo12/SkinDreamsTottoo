@@ -27,4 +27,7 @@ public class MasterDTO {
     @NotEmpty
     private String socialMedia;
 
+    @NotEmpty
+    private String imageURL;
+
 }
