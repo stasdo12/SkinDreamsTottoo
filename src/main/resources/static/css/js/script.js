@@ -5,6 +5,14 @@ $(document).ready(function() {
     });
 });
 
+//edit modal window
+// $('#exampleModal').modal({
+//     keyboard: false,
+//
+//
+// })
+
+
 
 
 function validateForm() {
