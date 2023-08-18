@@ -55,7 +55,7 @@ public class FAQController {
                 client.getPhone() +"\n" +"Client question: " +
                 client.getQuestion());
         redirectAttributes.addFlashAttribute("successMessage","ДЯКУЮ з Вами скоро зв'яжуться");
-        return "redirect:/uslugi#success";
+        return "redirect:/faq#success";
     }
 
     @ExceptionHandler(SDException.class)
